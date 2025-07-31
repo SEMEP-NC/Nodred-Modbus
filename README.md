@@ -2,7 +2,7 @@
 
 Ce projet contient tout le nécessaire pour déployer une solution de supervision énergétique via **Node-RED**, **Modbus TCP**, et **KNX IP**, avec un serveur Modbus Python intégré.
 
-Développé pour un déploiement simple dans une VM Dockerisée dans l’infrastructure VMware de l’OPT-NC.
+Développé pour un déploiement simple dans une VM Dockerisée.
 
 ---
 
