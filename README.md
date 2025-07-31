@@ -35,6 +35,6 @@ Développé pour un déploiement simple dans une VM Dockerisée.
 1. Cloner ce dépôt :
 
 ```bash
-git clone https://github.com/jojo687a/Nodred-Modbus.git
+git clone https://github.com/SEMEP-NC/Nodred-Modbus.git
 cd Nodred-Modbus
 
