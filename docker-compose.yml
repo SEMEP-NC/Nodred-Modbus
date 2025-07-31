@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  nodered-modbus:
+    build: .
+    container_name: nodered-modbus
+    ports:
+      - "1880:1880"     # Node-RED Web UI
+      - "502:502"       # Modbus standard
+      - "1502:1502"     # Modbus custom
+    restart: unless-stopped
