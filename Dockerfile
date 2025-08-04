@@ -17,7 +17,7 @@ RUN npm install -g --unsafe-perm node-red \
 
 # --- Installer dépendances Python
 COPY requirements.txt /app/requirements.txt
-RUN pip3 install --no-cache-dir -r /app/requirements.txt
+RUN pip3 install --no-cache-dir --break-system-packages -r /app/requirements.txt
 
 # --- Structure du projet
 WORKDIR /app
