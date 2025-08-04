@@ -17,7 +17,7 @@ RUN npm install -g --unsafe-perm node-red \
 
 # --- Installer dépendances Python
 COPY requirements.txt /app/requirements.txt
-RUN pip3 install --no-cache-dir -r /app/requirements.txt
+RUN pip3 install --break-system-packages --no-cache-dir -r /app/requirements.txt
 
 # --- Structure du projet
 WORKDIR /app
@@ -33,3 +33,4 @@ EXPOSE 1880 502 1502
 
 # --- Lancer l’environnement
 CMD ["bash", "/app/start.sh"]
+
