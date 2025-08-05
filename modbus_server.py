@@ -109,3 +109,5 @@ StartTcpServer(
     identity=identity,
     address=("0.0.0.0", 1502)
 )
+log.info("Sauvegarde manuelle forcée pour test...")
+save_registers(context)
