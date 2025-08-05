@@ -9,3 +9,4 @@ services:
       - "1502:1502"     # Modbus custom
       - "3671:3671"     # KNX IP
     restart: unless-stopped
+
