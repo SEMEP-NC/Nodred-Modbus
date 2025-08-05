@@ -96,6 +96,11 @@ identity.ProductName = "Modbus Server"
 identity.ModelName = "Modbus TCP Server"
 identity.MajorMinorRevision = "1.0"
 
-# === Lancement du serveur ===
+# === Lancement du serveur Modbus TCP ===
 log.info("Serveur Modbus TCP démarré sur 0.0.0.0:1502")
-StartTcpServer(context, identity=identity, address=("0.0.0.0", 1502))
+
+StartTcpServer(
+    context=context,
+    identity=identity,
+    address=("0.0.0.0", 1502)
+)
