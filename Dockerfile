@@ -33,7 +33,7 @@ RUN mkdir -p /data
 COPY flows.json /data/flows.json
 
 # --- Exposer les ports nécessaires
-EXPOSE 1880 1502 502
+EXPOSE 3671 1880 1502 502
 
 # --- (Optionnel) Healthcheck pour diagnostiquer si Node-RED est up
 HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
