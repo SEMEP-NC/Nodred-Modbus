@@ -15,28 +15,33 @@ logging.basicConfig()
 log = logging.getLogger()
 log.setLevel(logging.INFO)
 
-STATE_FILE = "modbus_state.json"
+# === Configuration ===
+STATE_FILE = os.getenv("MODBUS_STATE_FILE", "/data/modbus_state.json")
 SAVE_INTERVAL_SECONDS = 300  # 5 minutes
+
+save_lock = threading.Lock()
 
 # === Fonctions de sauvegarde/restauration ===
 
 def save_registers(context):
     try:
-        hr = context[0].getValues(3, 0, count=100)  # Holding Registers
-        co = context[0].getValues(1, 0, count=100)  # Coils
+        with save_lock:
+            hr = context[0].getValues(3, 0, count=100)  # Holding Registers
+            co = context[0].getValues(1, 0, count=100)  # Coils
 
-        state = {
-            "hr": hr,
-            "co": co
-        }
+            state = {
+                "hr": hr,
+                "co": co
+            }
 
-        with open(STATE_FILE, "w") as f:
-            json.dump(state, f)
+            with open(STATE_FILE, "w") as f:
+                json.dump(state, f)
 
         log.info("Sauvegarde automatique effectuée.")
-    except Exception as e:
+    except (IOError, json.JSONDecodeError) as e:
         log.warning("Échec de la sauvegarde : %s", e)
-
+    except Exception as e:
+        log.error("Erreur inattendue lors de la sauvegarde : %s", e)
 
 def load_registers(context):
     if os.path.exists(STATE_FILE):
@@ -47,11 +52,12 @@ def load_registers(context):
             context[0].setValues(3, 0, state.get("hr", [0]*100))  # Holding Registers
             context[0].setValues(1, 0, state.get("co", [0]*100))  # Coils
             log.info("État restauré avec succès.")
-        except Exception as e:
+        except (IOError, json.JSONDecodeError) as e:
             log.warning("Erreur de restauration : %s", e)
+        except Exception as e:
+            log.error("Erreur inattendue lors de la restauration : %s", e)
     else:
         log.info("Aucun fichier de sauvegarde trouvé. Utilisation des valeurs par défaut.")
-
 
 # === Thread de sauvegarde périodique ===
 
@@ -59,7 +65,6 @@ def periodic_saver(context):
     while True:
         time.sleep(SAVE_INTERVAL_SECONDS)
         save_registers(context)
-
 
 # === Définir les blocs de données ===
 
