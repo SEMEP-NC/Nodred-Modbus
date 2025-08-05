@@ -17,7 +17,7 @@ log.setLevel(logging.INFO)
 
 # === Configuration ===
 STATE_FILE = os.getenv("MODBUS_STATE_FILE", "/data/modbus_state.json")
-SAVE_INTERVAL_SECONDS = 300  # 5 minutes
+SAVE_INTERVAL_SECONDS = 30  # 30 secondes
 
 save_lock = threading.Lock()
 
@@ -110,4 +110,5 @@ StartTcpServer(
     address=("0.0.0.0", 1502)
 )
 log.info("Sauvegarde manuelle forcée pour test...")
+load_registers(context)
 save_registers(context)
