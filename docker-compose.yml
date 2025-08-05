@@ -7,4 +7,5 @@ services:
       - "1880:1880"     # Node-RED Web UI
       - "502:502"       # Modbus standard
       - "1502:1502"     # Modbus custom
+      - "3671:3671"     # KNX IP
     restart: unless-stopped
