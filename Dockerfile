@@ -2,6 +2,7 @@ FROM debian:bookworm
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV NODE_RED_HOME=/data
+ENV MODBUS_STATE_FILE=/data/modbus_state.json
 
 # --- Mises à jour système + dépendances
 RUN apt-get update && apt-get install -y \
@@ -28,16 +29,16 @@ COPY . .
 # --- Assurer que le script de démarrage est exécutable
 RUN chmod +x /app/start.sh
 
-# --- Préparer le dossier de flow Node-RED
+# --- Préparer le dossier /data (pour persistance)
 RUN mkdir -p /data
 COPY flows.json /data/flows.json
 
 # --- Exposer les ports nécessaires
 EXPOSE 3671 1880 1502 502
 
-# --- (Optionnel) Healthcheck pour diagnostiquer si Node-RED est up
+# --- Healthcheck optionnel
 HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
   CMD curl -f http://localhost:1880 || exit 1
 
-# --- Commande de lancement
+# --- Point d'entrée : démarrage du script
 CMD ["bash", "/app/start.sh"]

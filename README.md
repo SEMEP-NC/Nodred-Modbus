@@ -37,4 +37,20 @@ Développé pour un déploiement simple dans une VM Dockerisée.
 ```bash
 git clone https://github.com/SEMEP-NC/Nodred-Modbus.git
 cd Nodred-Modbus
+```
+2. Contruire l'image docker :
 
+```bash
+docker build -t nodred-modbus .
+```
+3. Lancer le conteneur avec un volume pour persister les données Modbus et flows Node-RED :
+
+```bash
+docker run -d --name nodred-modbus \
+  -p 3671:3671/udp \
+  -p 1880:1880 \
+  -p 502:502 \
+  -p 1502:1502 \
+  -v $(pwd)/data:/data \
+  nodred-modbus
+```
