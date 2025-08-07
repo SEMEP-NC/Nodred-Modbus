@@ -47,9 +47,7 @@ docker build -t nodred-modbus .
 
 ```bash
 docker run -d --name nodred-modbus \
-  -p 3671:3671/udp \
   -p 1880:1880 \
-  -p 502:502 \
   -p 1502:1502 \
   -v $(pwd)/data:/data \
   nodred-modbus
