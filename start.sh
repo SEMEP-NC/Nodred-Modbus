@@ -6,6 +6,8 @@ echo "----------------------------------------"
 echo "[+] Initialisation du conteneur Node-RED + Modbus"
 echo "----------------------------------------"
 
+cp -n /app/flows.json /data/
+
 # Démarrer Node-RED avec le répertoire de données spécifié
 echo "[+] Démarrage de Node-RED..."
 node-red -u /data &
