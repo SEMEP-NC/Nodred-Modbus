@@ -25,7 +25,7 @@
         "delayOnStart": false,
         "startDelayTime": "",
         "x": 700,
-        "y": 40,
+        "y": 20,
         "wires": [
             [],
             []
@@ -70,7 +70,7 @@
         "type": "function",
         "z": "eb0c2330629d9ddf",
         "name": "Conversion",
-        "func": "// msg.payload contient un booléen venant de KNX : true ou false\n\n// Valeur cible : 170 pour ON (true), 85 pour OFF (false)\nlet valeurModbus = msg.payload === true ? 170 : 85;\n\n// msg.payload doit être un tableau pour modbus-write (Holding Register)\nmsg.payload = [valeurModbus];\n\nreturn msg;\n",
+        "func": "// msg.payload contient un booléen venant de KNX : true ou false\n\nif (msg.payload === false) {\n    // Seulement si false → écrire 85\n    msg.payload = [85];\n    return msg;\n} else {\n    // Si true → ne rien envoyer\n    return null;\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -81,7 +81,8 @@
         "y": 40,
         "wires": [
             [
-                "b19903d0408fcad8"
+                "b19903d0408fcad8",
+                "a7a88ef6cce7e54a"
             ]
         ]
     },
@@ -103,7 +104,7 @@
         "delayOnStart": false,
         "startDelayTime": "",
         "x": 700,
-        "y": 100,
+        "y": 80,
         "wires": [
             [],
             []
@@ -148,7 +149,7 @@
         "type": "function",
         "z": "eb0c2330629d9ddf",
         "name": "Conversion",
-        "func": "// msg.payload contient un booléen venant de KNX : true ou false\n\n// Valeur cible : 170 pour ON (true), 85 pour OFF (false)\nlet valeurModbus = msg.payload === true ? 170 : 85;\n\n// msg.payload doit être un tableau pour modbus-write (Holding Register)\nmsg.payload = [valeurModbus];\n\nreturn msg;\n",
+        "func": "// msg.payload contient un booléen venant de KNX : true ou false\n\nif (msg.payload === false) {\n    // Seulement si false → écrire 85\n    msg.payload = [85];\n    return msg;\n} else {\n    // Si true → ne rien envoyer\n    return null;\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -159,7 +160,8 @@
         "y": 100,
         "wires": [
             [
-                "54d0a576d15079b2"
+                "54d0a576d15079b2",
+                "0e4edf681ffc4c1a"
             ]
         ]
     },
@@ -181,7 +183,7 @@
         "delayOnStart": false,
         "startDelayTime": "",
         "x": 700,
-        "y": 160,
+        "y": 140,
         "wires": [
             [],
             []
@@ -226,7 +228,7 @@
         "type": "function",
         "z": "eb0c2330629d9ddf",
         "name": "Conversion",
-        "func": "// msg.payload contient un booléen venant de KNX : true ou false\n\n// Valeur cible : 170 pour ON (true), 85 pour OFF (false)\nlet valeurModbus = msg.payload === true ? 170 : 85;\n\n// msg.payload doit être un tableau pour modbus-write (Holding Register)\nmsg.payload = [valeurModbus];\n\nreturn msg;\n",
+        "func": "// msg.payload contient un booléen venant de KNX : true ou false\n\nif (msg.payload === false) {\n    // Seulement si false → écrire 85\n    msg.payload = [85];\n    return msg;\n} else {\n    // Si true → ne rien envoyer\n    return null;\n}\n\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -237,7 +239,8 @@
         "y": 160,
         "wires": [
             [
-                "15f83a076dd9ae9d"
+                "15f83a076dd9ae9d",
+                "ecbfdb17cdb62c38"
             ]
         ]
     },
@@ -259,7 +262,7 @@
         "delayOnStart": false,
         "startDelayTime": "",
         "x": 700,
-        "y": 220,
+        "y": 200,
         "wires": [
             [],
             []
@@ -304,7 +307,7 @@
         "type": "function",
         "z": "eb0c2330629d9ddf",
         "name": "Conversion",
-        "func": "// msg.payload contient un booléen venant de KNX : true ou false\n\n// Valeur cible : 170 pour ON (true), 85 pour OFF (false)\nlet valeurModbus = msg.payload === true ? 170 : 85;\n\n// msg.payload doit être un tableau pour modbus-write (Holding Register)\nmsg.payload = [valeurModbus];\n\nreturn msg;\n",
+        "func": "// msg.payload contient un booléen venant de KNX : true ou false\n\nif (msg.payload === false) {\n    // Seulement si false → écrire 85\n    msg.payload = [85];\n    return msg;\n} else {\n    // Si true → ne rien envoyer\n    return null;\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -315,7 +318,8 @@
         "y": 220,
         "wires": [
             [
-                "4134de5e988ef106"
+                "4134de5e988ef106",
+                "4b00ae7da45c959f"
             ]
         ]
     },
@@ -607,7 +611,7 @@
         "delayOnStart": false,
         "startDelayTime": "",
         "x": 700,
-        "y": 280,
+        "y": 260,
         "wires": [
             [],
             []
@@ -652,7 +656,7 @@
         "type": "function",
         "z": "eb0c2330629d9ddf",
         "name": "Conversion",
-        "func": "// msg.payload contient un booléen venant de KNX : true ou false\n\n// Valeur cible : 170 pour ON (true), 85 pour OFF (false)\nlet valeurModbus = msg.payload === true ? 170 : 85;\n\n// msg.payload doit être un tableau pour modbus-write (Holding Register)\nmsg.payload = [valeurModbus];\n\nreturn msg;\n",
+        "func": "// msg.payload contient un booléen venant de KNX : true ou false\n\nif (msg.payload === false) {\n    // Seulement si false → écrire 85\n    msg.payload = [85];\n    return msg;\n} else {\n    // Si true → ne rien envoyer\n    return null;\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -663,7 +667,8 @@
         "y": 280,
         "wires": [
             [
-                "20512838d6ff3dd8"
+                "20512838d6ff3dd8",
+                "76e0e582cf04a7c3"
             ]
         ]
     },
@@ -1748,82 +1753,6 @@
         ]
     },
     {
-        "id": "c0eea201a268ae84",
-        "type": "modbus-read",
-        "z": "eb0c2330629d9ddf",
-        "name": "Lecture Modbus bureau 2",
-        "topic": "",
-        "showStatusActivities": false,
-        "logIOActivities": false,
-        "showErrors": false,
-        "showWarnings": true,
-        "unitid": "",
-        "dataType": "HoldingRegister",
-        "adr": "61",
-        "quantity": "1",
-        "rate": "500",
-        "rateUnit": "ms",
-        "delayOnStart": false,
-        "startDelayTime": "10",
-        "server": "247636eb43d0af05",
-        "useIOFile": false,
-        "ioFile": "",
-        "useIOForPayload": false,
-        "emptyMsgOnFail": false,
-        "x": 1250,
-        "y": 1520,
-        "wires": [
-            [
-                "f0ed0b6f43932f1f"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "0e4edf681ffc4c1a",
-        "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Ecriture adresses 877",
-        "showStatusActivities": true,
-        "showErrors": true,
-        "showWarnings": true,
-        "unitid": "1",
-        "dataType": "MHoldingRegisters",
-        "adr": "877",
-        "quantity": "1",
-        "server": "b6c58d9a505c9baa",
-        "emptyMsgOnFail": false,
-        "keepMsgProperties": false,
-        "delayOnStart": false,
-        "startDelayTime": "10",
-        "x": 1680,
-        "y": 1520,
-        "wires": [
-            [],
-            []
-        ]
-    },
-    {
-        "id": "f0ed0b6f43932f1f",
-        "type": "rbe",
-        "z": "eb0c2330629d9ddf",
-        "name": "RBE ",
-        "func": "rbe",
-        "gap": "",
-        "start": "",
-        "inout": "out",
-        "septopics": true,
-        "property": "payload",
-        "topi": "topic",
-        "x": 1470,
-        "y": 1520,
-        "wires": [
-            [
-                "0e4edf681ffc4c1a"
-            ]
-        ]
-    },
-    {
         "id": "e4946d855a9563a6",
         "type": "function",
         "z": "eb0c2330629d9ddf",
@@ -2000,82 +1929,6 @@
         "wires": [
             [],
             []
-        ]
-    },
-    {
-        "id": "5e061f13527ca473",
-        "type": "modbus-read",
-        "z": "eb0c2330629d9ddf",
-        "name": "Lecture Modbus bureau 3",
-        "topic": "",
-        "showStatusActivities": false,
-        "logIOActivities": false,
-        "showErrors": false,
-        "showWarnings": true,
-        "unitid": "",
-        "dataType": "HoldingRegister",
-        "adr": "62",
-        "quantity": "1",
-        "rate": "500",
-        "rateUnit": "ms",
-        "delayOnStart": false,
-        "startDelayTime": "10",
-        "server": "247636eb43d0af05",
-        "useIOFile": false,
-        "ioFile": "",
-        "useIOForPayload": false,
-        "emptyMsgOnFail": false,
-        "x": 1250,
-        "y": 1800,
-        "wires": [
-            [
-                "fdbe7edbcc04c9aa"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "ecbfdb17cdb62c38",
-        "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Ecriture adresses 227",
-        "showStatusActivities": true,
-        "showErrors": true,
-        "showWarnings": true,
-        "unitid": "1",
-        "dataType": "MHoldingRegisters",
-        "adr": "227",
-        "quantity": "1",
-        "server": "b6c58d9a505c9baa",
-        "emptyMsgOnFail": false,
-        "keepMsgProperties": false,
-        "delayOnStart": false,
-        "startDelayTime": "10",
-        "x": 1680,
-        "y": 1800,
-        "wires": [
-            [],
-            []
-        ]
-    },
-    {
-        "id": "fdbe7edbcc04c9aa",
-        "type": "rbe",
-        "z": "eb0c2330629d9ddf",
-        "name": "RBE ",
-        "func": "rbe",
-        "gap": "",
-        "start": "",
-        "inout": "out",
-        "septopics": true,
-        "property": "payload",
-        "topi": "topic",
-        "x": 1470,
-        "y": 1800,
-        "wires": [
-            [
-                "ecbfdb17cdb62c38"
-            ]
         ]
     },
     {
@@ -2290,82 +2143,6 @@
         ]
     },
     {
-        "id": "c83fa5b3462af653",
-        "type": "modbus-read",
-        "z": "eb0c2330629d9ddf",
-        "name": "Lecture Modbus bureau 3",
-        "topic": "",
-        "showStatusActivities": false,
-        "logIOActivities": false,
-        "showErrors": false,
-        "showWarnings": true,
-        "unitid": "",
-        "dataType": "HoldingRegister",
-        "adr": "63",
-        "quantity": "1",
-        "rate": "500",
-        "rateUnit": "ms",
-        "delayOnStart": false,
-        "startDelayTime": "10",
-        "server": "247636eb43d0af05",
-        "useIOFile": false,
-        "ioFile": "",
-        "useIOForPayload": false,
-        "emptyMsgOnFail": false,
-        "x": 1250,
-        "y": 2080,
-        "wires": [
-            [
-                "8ac1cb13ab0ceb98"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "4b00ae7da45c959f",
-        "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Ecriture adresses 302",
-        "showStatusActivities": true,
-        "showErrors": true,
-        "showWarnings": true,
-        "unitid": "1",
-        "dataType": "MHoldingRegisters",
-        "adr": "302",
-        "quantity": "1",
-        "server": "b6c58d9a505c9baa",
-        "emptyMsgOnFail": false,
-        "keepMsgProperties": false,
-        "delayOnStart": false,
-        "startDelayTime": "10",
-        "x": 1680,
-        "y": 2080,
-        "wires": [
-            [],
-            []
-        ]
-    },
-    {
-        "id": "8ac1cb13ab0ceb98",
-        "type": "rbe",
-        "z": "eb0c2330629d9ddf",
-        "name": "RBE ",
-        "func": "rbe",
-        "gap": "",
-        "start": "",
-        "inout": "out",
-        "septopics": true,
-        "property": "payload",
-        "topi": "topic",
-        "x": 1470,
-        "y": 2080,
-        "wires": [
-            [
-                "4b00ae7da45c959f"
-            ]
-        ]
-    },
-    {
         "id": "685bdd4e70c03c9f",
         "type": "modbus-read",
         "z": "eb0c2330629d9ddf",
@@ -2574,82 +2351,6 @@
         "wires": [
             [],
             []
-        ]
-    },
-    {
-        "id": "ad48026736667f9b",
-        "type": "modbus-read",
-        "z": "eb0c2330629d9ddf",
-        "name": "Lecture Modbus bureau 5",
-        "topic": "",
-        "showStatusActivities": false,
-        "logIOActivities": false,
-        "showErrors": false,
-        "showWarnings": true,
-        "unitid": "",
-        "dataType": "HoldingRegister",
-        "adr": "64",
-        "quantity": "1",
-        "rate": "500",
-        "rateUnit": "ms",
-        "delayOnStart": false,
-        "startDelayTime": "10",
-        "server": "247636eb43d0af05",
-        "useIOFile": false,
-        "ioFile": "",
-        "useIOForPayload": false,
-        "emptyMsgOnFail": false,
-        "x": 1250,
-        "y": 2360,
-        "wires": [
-            [
-                "0de8a84beb4c0e70"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "76e0e582cf04a7c3",
-        "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Ecriture adresses 327",
-        "showStatusActivities": true,
-        "showErrors": true,
-        "showWarnings": true,
-        "unitid": "1",
-        "dataType": "MHoldingRegisters",
-        "adr": "327",
-        "quantity": "1",
-        "server": "b6c58d9a505c9baa",
-        "emptyMsgOnFail": false,
-        "keepMsgProperties": false,
-        "delayOnStart": false,
-        "startDelayTime": "10",
-        "x": 1680,
-        "y": 2360,
-        "wires": [
-            [],
-            []
-        ]
-    },
-    {
-        "id": "0de8a84beb4c0e70",
-        "type": "rbe",
-        "z": "eb0c2330629d9ddf",
-        "name": "RBE ",
-        "func": "rbe",
-        "gap": "",
-        "start": "",
-        "inout": "out",
-        "septopics": true,
-        "property": "payload",
-        "topi": "topic",
-        "x": 1470,
-        "y": 2360,
-        "wires": [
-            [
-                "76e0e582cf04a7c3"
-            ]
         ]
     },
     {
@@ -3226,58 +2927,6 @@
         ]
     },
     {
-        "id": "c177ee0f91d5c029",
-        "type": "modbus-read",
-        "z": "eb0c2330629d9ddf",
-        "name": "Lecture Modbus bureau 1",
-        "topic": "",
-        "showStatusActivities": false,
-        "logIOActivities": false,
-        "showErrors": false,
-        "showWarnings": true,
-        "unitid": "",
-        "dataType": "HoldingRegister",
-        "adr": "60",
-        "quantity": "1",
-        "rate": "500",
-        "rateUnit": "ms",
-        "delayOnStart": false,
-        "startDelayTime": "10",
-        "server": "247636eb43d0af05",
-        "useIOFile": false,
-        "ioFile": "",
-        "useIOForPayload": false,
-        "emptyMsgOnFail": false,
-        "x": 1250,
-        "y": 1260,
-        "wires": [
-            [
-                "7c8e0a23d7fd1632"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "7c8e0a23d7fd1632",
-        "type": "rbe",
-        "z": "eb0c2330629d9ddf",
-        "name": "RBE ",
-        "func": "rbe",
-        "gap": "",
-        "start": "",
-        "inout": "out",
-        "septopics": true,
-        "property": "payload",
-        "topi": "topic",
-        "x": 1470,
-        "y": 1260,
-        "wires": [
-            [
-                "a7a88ef6cce7e54a"
-            ]
-        ]
-    },
-    {
         "id": "dafab51fce16c0c6",
         "type": "function",
         "z": "eb0c2330629d9ddf",
@@ -3505,8 +3154,104 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "10",
-        "x": 1680,
-        "y": 1260,
+        "x": 900,
+        "y": 60,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "0e4edf681ffc4c1a",
+        "type": "modbus-write",
+        "z": "eb0c2330629d9ddf",
+        "name": "Ecriture adresses 877",
+        "showStatusActivities": true,
+        "showErrors": true,
+        "showWarnings": true,
+        "unitid": "1",
+        "dataType": "MHoldingRegisters",
+        "adr": "877",
+        "quantity": "1",
+        "server": "b6c58d9a505c9baa",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "10",
+        "x": 900,
+        "y": 120,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ecbfdb17cdb62c38",
+        "type": "modbus-write",
+        "z": "eb0c2330629d9ddf",
+        "name": "Ecriture adresses 227",
+        "showStatusActivities": true,
+        "showErrors": true,
+        "showWarnings": true,
+        "unitid": "1",
+        "dataType": "MHoldingRegisters",
+        "adr": "227",
+        "quantity": "1",
+        "server": "b6c58d9a505c9baa",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "10",
+        "x": 900,
+        "y": 180,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "4b00ae7da45c959f",
+        "type": "modbus-write",
+        "z": "eb0c2330629d9ddf",
+        "name": "Ecriture adresses 302",
+        "showStatusActivities": true,
+        "showErrors": true,
+        "showWarnings": true,
+        "unitid": "1",
+        "dataType": "MHoldingRegisters",
+        "adr": "302",
+        "quantity": "1",
+        "server": "b6c58d9a505c9baa",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "10",
+        "x": 900,
+        "y": 240,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "76e0e582cf04a7c3",
+        "type": "modbus-write",
+        "z": "eb0c2330629d9ddf",
+        "name": "Ecriture adresses 327",
+        "showStatusActivities": true,
+        "showErrors": true,
+        "showWarnings": true,
+        "unitid": "1",
+        "dataType": "MHoldingRegisters",
+        "adr": "327",
+        "quantity": "1",
+        "server": "b6c58d9a505c9baa",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "10",
+        "x": 900,
+        "y": 300,
         "wires": [
             [],
             []
@@ -3592,7 +3337,7 @@
         "showLogs": true
     },
     {
-        "id": "f84f83bb34a8fef5",
+        "id": "96819a67f4dc1a1a",
         "type": "global-config",
         "env": [],
         "modules": {
