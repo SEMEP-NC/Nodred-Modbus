@@ -1,17 +1,17 @@
 [
     {
-        "id": "eb0c2330629d9ddf",
+        "id": "a4054732959ec832",
         "type": "tab",
-        "label": "Flux 1",
+        "label": "Flux R+6",
         "disabled": false,
         "info": "",
         "env": []
     },
     {
-        "id": "b19903d0408fcad8",
+        "id": "ff08e28898bbc662",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Coupure clim 1",
+        "z": "a4054732959ec832",
+        "name": "Coupure clim F09bis",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -24,7 +24,7 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 700,
+        "x": 860,
         "y": 20,
         "wires": [
             [],
@@ -32,9 +32,9 @@
         ]
     },
     {
-        "id": "38d4803cef75330f",
+        "id": "a6ba6ad0585880fb",
         "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
         "topic": "6/7/11",
         "setTopicType": "str",
@@ -46,7 +46,7 @@
         "notifywrite": true,
         "notifyreadrequestalsorespondtobus": false,
         "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
-        "name": "coupure clim bureau 1",
+        "name": "coupure clim Bureau F09bis",
         "outputtype": "write",
         "outputRBE": "true",
         "inputRBE": "false",
@@ -57,18 +57,18 @@
         "sendMsgToKNXCode": "",
         "receiveMsgFromKNXCode": "",
         "listenallga": false,
-        "x": 140,
+        "x": 160,
         "y": 40,
         "wires": [
             [
-                "d0c8fa89c988ab0a"
+                "d6458ea8dec0eb03"
             ]
         ]
     },
     {
-        "id": "d0c8fa89c988ab0a",
+        "id": "d6458ea8dec0eb03",
         "type": "function",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "name": "Conversion",
         "func": "// msg.payload contient un booléen venant de KNX : true ou false\n\nif (msg.payload === false) {\n    // Seulement si false → écrire 85\n    msg.payload = [85];\n    return msg;\n} else {\n    // Si true → ne rien envoyer\n    return null;\n}\n",
         "outputs": 1,
@@ -77,20 +77,20 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 410,
+        "x": 430,
         "y": 40,
         "wires": [
             [
-                "b19903d0408fcad8",
-                "a7a88ef6cce7e54a"
+                "ff08e28898bbc662",
+                "83c1d7baa6a13a59"
             ]
         ]
     },
     {
-        "id": "54d0a576d15079b2",
+        "id": "db3aea232b0e7b19",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Coupure clim 2",
+        "z": "a4054732959ec832",
+        "name": "Coupure clim F09",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -103,17 +103,17 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 700,
-        "y": 80,
+        "x": 850,
+        "y": 300,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "58249426ea294436",
+        "id": "f040e3c9c98a7ccb",
         "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
         "topic": "6/7/12",
         "setTopicType": "str",
@@ -125,7 +125,7 @@
         "notifywrite": true,
         "notifyreadrequestalsorespondtobus": false,
         "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
-        "name": "Coupure clim bureau 2",
+        "name": "Coupure clim Bureau F09",
         "outputtype": "write",
         "outputRBE": "true",
         "inputRBE": "false",
@@ -136,18 +136,18 @@
         "sendMsgToKNXCode": "",
         "receiveMsgFromKNXCode": "",
         "listenallga": false,
-        "x": 140,
-        "y": 100,
+        "x": 150,
+        "y": 340,
         "wires": [
             [
-                "be8a1cb37bbc96ac"
+                "06c3c32a49b5c176"
             ]
         ]
     },
     {
-        "id": "be8a1cb37bbc96ac",
+        "id": "06c3c32a49b5c176",
         "type": "function",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "name": "Conversion",
         "func": "// msg.payload contient un booléen venant de KNX : true ou false\n\nif (msg.payload === false) {\n    // Seulement si false → écrire 85\n    msg.payload = [85];\n    return msg;\n} else {\n    // Si true → ne rien envoyer\n    return null;\n}\n",
         "outputs": 1,
@@ -156,20 +156,20 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 410,
-        "y": 100,
+        "x": 420,
+        "y": 340,
         "wires": [
             [
-                "54d0a576d15079b2",
-                "0e4edf681ffc4c1a"
+                "db3aea232b0e7b19",
+                "3b190223dd97ed30"
             ]
         ]
     },
     {
-        "id": "15f83a076dd9ae9d",
+        "id": "ec95f50220b56973",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Coupure clim 3",
+        "z": "a4054732959ec832",
+        "name": "Coupure clim F06a",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -182,17 +182,17 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 700,
-        "y": 140,
+        "x": 850,
+        "y": 600,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "2698dc67a3bb1ba6",
+        "id": "01b6f13ecddac303",
         "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
         "topic": "6/7/17",
         "setTopicType": "str",
@@ -204,7 +204,7 @@
         "notifywrite": true,
         "notifyreadrequestalsorespondtobus": false,
         "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
-        "name": "coupure clim bureau 3",
+        "name": "coupure clim Bureau F06a",
         "outputtype": "write",
         "outputRBE": "true",
         "inputRBE": "false",
@@ -215,18 +215,18 @@
         "sendMsgToKNXCode": "",
         "receiveMsgFromKNXCode": "",
         "listenallga": false,
-        "x": 140,
-        "y": 160,
+        "x": 150,
+        "y": 620,
         "wires": [
             [
-                "837057c44e62cdec"
+                "3a0c3f9816013630"
             ]
         ]
     },
     {
-        "id": "837057c44e62cdec",
+        "id": "3a0c3f9816013630",
         "type": "function",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "name": "Conversion",
         "func": "// msg.payload contient un booléen venant de KNX : true ou false\n\nif (msg.payload === false) {\n    // Seulement si false → écrire 85\n    msg.payload = [85];\n    return msg;\n} else {\n    // Si true → ne rien envoyer\n    return null;\n}\n\n",
         "outputs": 1,
@@ -236,19 +236,19 @@
         "finalize": "",
         "libs": [],
         "x": 410,
-        "y": 160,
+        "y": 620,
         "wires": [
             [
-                "15f83a076dd9ae9d",
-                "ecbfdb17cdb62c38"
+                "ec95f50220b56973",
+                "2b11b22b84074702"
             ]
         ]
     },
     {
-        "id": "4134de5e988ef106",
+        "id": "006aaed5c3b0d9a7",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Coupure clim 4",
+        "z": "a4054732959ec832",
+        "name": "Coupure clim F11",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -261,17 +261,17 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 700,
-        "y": 200,
+        "x": 850,
+        "y": 880,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "854f596271d851eb",
+        "id": "597f7ef3ec0a92c5",
         "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
         "topic": "6/7/22",
         "setTopicType": "str",
@@ -283,7 +283,7 @@
         "notifywrite": true,
         "notifyreadrequestalsorespondtobus": false,
         "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
-        "name": "coupure clim bureau 4",
+        "name": "coupure clim Bureau F11",
         "outputtype": "write",
         "outputRBE": "true",
         "inputRBE": "false",
@@ -294,18 +294,18 @@
         "sendMsgToKNXCode": "",
         "receiveMsgFromKNXCode": "",
         "listenallga": false,
-        "x": 140,
-        "y": 220,
+        "x": 150,
+        "y": 900,
         "wires": [
             [
-                "08ffe2ccfbd5ee7c"
+                "b1f1b5018f2aed56"
             ]
         ]
     },
     {
-        "id": "08ffe2ccfbd5ee7c",
+        "id": "b1f1b5018f2aed56",
         "type": "function",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "name": "Conversion",
         "func": "// msg.payload contient un booléen venant de KNX : true ou false\n\nif (msg.payload === false) {\n    // Seulement si false → écrire 85\n    msg.payload = [85];\n    return msg;\n} else {\n    // Si true → ne rien envoyer\n    return null;\n}\n",
         "outputs": 1,
@@ -314,19 +314,19 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 410,
-        "y": 220,
+        "x": 420,
+        "y": 900,
         "wires": [
             [
-                "4134de5e988ef106",
-                "4b00ae7da45c959f"
+                "006aaed5c3b0d9a7",
+                "f452aec005fde813"
             ]
         ]
     },
     {
-        "id": "eb7014b58f55237e",
+        "id": "a9a74b4fd43b63cb",
         "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
         "topic": "6/7/7",
         "setTopicType": "str",
@@ -338,7 +338,7 @@
         "notifywrite": true,
         "notifyreadrequestalsorespondtobus": false,
         "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
-        "name": "Présence bureau 01",
+        "name": "Présence Bureau F09bis",
         "outputtype": "write",
         "outputRBE": "true",
         "inputRBE": "false",
@@ -349,19 +349,19 @@
         "sendMsgToKNXCode": "",
         "receiveMsgFromKNXCode": "",
         "listenallga": false,
-        "x": 130,
-        "y": 360,
+        "x": 150,
+        "y": 100,
         "wires": [
             [
-                "74a8705968e434ad"
+                "273886409864a1bd"
             ]
         ]
     },
     {
-        "id": "74a8705968e434ad",
+        "id": "273886409864a1bd",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Présence bureau 1",
+        "z": "a4054732959ec832",
+        "name": "Présence Bureau F09bis",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -374,18 +374,18 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 430,
-        "y": 360,
+        "x": 490,
+        "y": 100,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "9596bafcc28875a9",
+        "id": "55056c6b21f609b6",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Luminosité bureau 1",
+        "z": "a4054732959ec832",
+        "name": "Luminosité Bureau F09bis",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -398,17 +398,17 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 440,
-        "y": 420,
+        "x": 490,
+        "y": 160,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "8eb5d8497c281ecd",
+        "id": "928b44c8946c5c07",
         "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
         "topic": "6/5/23",
         "setTopicType": "str",
@@ -420,7 +420,7 @@
         "notifywrite": true,
         "notifyreadrequestalsorespondtobus": false,
         "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
-        "name": "Luminosité bureau 1",
+        "name": "Luminosité Bureau F09bis",
         "outputtype": "write",
         "outputRBE": "true",
         "inputRBE": "false",
@@ -431,19 +431,19 @@
         "sendMsgToKNXCode": "",
         "receiveMsgFromKNXCode": "",
         "listenallga": false,
-        "x": 130,
-        "y": 420,
+        "x": 150,
+        "y": 160,
         "wires": [
             [
-                "9596bafcc28875a9"
+                "55056c6b21f609b6"
             ]
         ]
     },
     {
-        "id": "modbus-read-multi",
+        "id": "e6387f32d7df57b2",
         "type": "modbus-read",
-        "z": "eb0c2330629d9ddf",
-        "name": "Lecture Modbus 3 registres bureau 1",
+        "z": "a4054732959ec832",
+        "name": "Lecture Modbus 3 registres Bureau F09bis",
         "topic": "",
         "showStatusActivities": false,
         "logIOActivities": false,
@@ -462,19 +462,19 @@
         "ioFile": "",
         "useIOForPayload": false,
         "emptyMsgOnFail": false,
-        "x": 740,
-        "y": 360,
+        "x": 180,
+        "y": 220,
         "wires": [
             [
-                "function-split-values"
+                "7ce8b70d98f3f0fc"
             ],
             []
         ]
     },
     {
-        "id": "function-split-values",
+        "id": "7ce8b70d98f3f0fc",
         "type": "function",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "name": "Découper registres en messages KNX",
         "func": "// msg.payload est un tableau des registres lus\nlet registers = msg.payload;\n\n// Crée un tableau de 3 messages pour KNX avec payload et topic/dpt adaptés\nlet msg1 = [\n    {\n        payload: registers[0],\n        topic: \"6/7/8\",  // tempo eclairage\n        dpt: \"7.006\"      \n    },\n]\nlet msg2 = [\n    {\n        payload: registers[1],\n        topic: \"6/5/18\", // Consigne luminosité\n        dpt: \"9.004\"\n    },\n]\nlet msg3 = [\n    {\n        payload: registers[2],\n        topic: \"6/7/10\", // tempo clim\n        dpt: \"7.006\"\n    }\n];\n\nreturn [msg1, msg2, msg3];",
         "outputs": 3,
@@ -483,24 +483,24 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1110,
-        "y": 360,
+        "x": 530,
+        "y": 220,
         "wires": [
             [
-                "knx1"
+                "8caba1b72ea5782f"
             ],
             [
-                "knx2"
+                "f9eb3a43c28f5d83"
             ],
             [
-                "knx3"
+                "b55912adbb698a7f"
             ]
         ]
     },
     {
-        "id": "knx1",
+        "id": "8caba1b72ea5782f",
         "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
         "topic": "6/7/8",
         "setTopicType": "str",
@@ -523,16 +523,16 @@
         "sendMsgToKNXCode": "",
         "receiveMsgFromKNXCode": "",
         "listenallga": false,
-        "x": 1500,
-        "y": 260,
+        "x": 860,
+        "y": 120,
         "wires": [
             []
         ]
     },
     {
-        "id": "knx2",
+        "id": "f9eb3a43c28f5d83",
         "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
         "topic": "6/5/18",
         "setTopicType": "str",
@@ -555,16 +555,16 @@
         "sendMsgToKNXCode": "",
         "receiveMsgFromKNXCode": "",
         "listenallga": false,
-        "x": 1510,
-        "y": 320,
+        "x": 870,
+        "y": 180,
         "wires": [
             []
         ]
     },
     {
-        "id": "knx3",
+        "id": "b55912adbb698a7f",
         "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
         "topic": "6/7/10",
         "setTopicType": "str",
@@ -587,17 +587,17 @@
         "sendMsgToKNXCode": "",
         "receiveMsgFromKNXCode": "",
         "listenallga": false,
-        "x": 1490,
-        "y": 380,
+        "x": 850,
+        "y": 240,
         "wires": [
             []
         ]
     },
     {
-        "id": "20512838d6ff3dd8",
+        "id": "c3497cbecc6ff14f",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Coupure clim 5",
+        "z": "a4054732959ec832",
+        "name": "Coupure clim F04",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -610,17 +610,17 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 700,
-        "y": 260,
+        "x": 850,
+        "y": 1160,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "2a1226fb72ba1a11",
+        "id": "932710e14d7d332c",
         "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
         "topic": "6/7/27",
         "setTopicType": "str",
@@ -632,7 +632,7 @@
         "notifywrite": true,
         "notifyreadrequestalsorespondtobus": false,
         "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
-        "name": "Coupure clim bureau 05",
+        "name": "Coupure clim Bureau F04",
         "outputtype": "write",
         "outputRBE": "true",
         "inputRBE": "false",
@@ -643,18 +643,18 @@
         "sendMsgToKNXCode": "",
         "receiveMsgFromKNXCode": "",
         "listenallga": false,
-        "x": 140,
-        "y": 280,
+        "x": 150,
+        "y": 1180,
         "wires": [
             [
-                "404d71cd22cf08c6"
+                "1c967f2bcc330e61"
             ]
         ]
     },
     {
-        "id": "404d71cd22cf08c6",
+        "id": "1c967f2bcc330e61",
         "type": "function",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "name": "Conversion",
         "func": "// msg.payload contient un booléen venant de KNX : true ou false\n\nif (msg.payload === false) {\n    // Seulement si false → écrire 85\n    msg.payload = [85];\n    return msg;\n} else {\n    // Si true → ne rien envoyer\n    return null;\n}\n",
         "outputs": 1,
@@ -663,19 +663,19 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 410,
-        "y": 280,
+        "x": 420,
+        "y": 1180,
         "wires": [
             [
-                "20512838d6ff3dd8",
-                "76e0e582cf04a7c3"
+                "c3497cbecc6ff14f",
+                "4b3569d1cf9e16fa"
             ]
         ]
     },
     {
-        "id": "fe39379e9931cf9d",
+        "id": "8a66b0ecdfc349c0",
         "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
         "topic": "6/7/13",
         "setTopicType": "str",
@@ -687,7 +687,7 @@
         "notifywrite": true,
         "notifyreadrequestalsorespondtobus": false,
         "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
-        "name": "Présence bureau 02",
+        "name": "Présence Bureau F09",
         "outputtype": "write",
         "outputRBE": "true",
         "inputRBE": "false",
@@ -698,19 +698,19 @@
         "sendMsgToKNXCode": "",
         "receiveMsgFromKNXCode": "",
         "listenallga": false,
-        "x": 130,
-        "y": 540,
+        "x": 140,
+        "y": 400,
         "wires": [
             [
-                "a86d7d748ab77a4d"
+                "675e70c30b558f36"
             ]
         ]
     },
     {
-        "id": "a86d7d748ab77a4d",
+        "id": "675e70c30b558f36",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Présence bureau 2",
+        "z": "a4054732959ec832",
+        "name": "Présence Bureau F09",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -723,18 +723,18 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 430,
-        "y": 540,
+        "x": 440,
+        "y": 400,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "3ab0a03442d8484d",
+        "id": "7a111043b3d050cc",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Luminosité bureau 2",
+        "z": "a4054732959ec832",
+        "name": "Luminosité Bureau F09",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -747,17 +747,17 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 440,
-        "y": 600,
+        "x": 450,
+        "y": 460,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "9eb72f7560c4e1a2",
+        "id": "dfe320c055ac441c",
         "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
         "topic": "6/5/12",
         "setTopicType": "str",
@@ -769,7 +769,7 @@
         "notifywrite": true,
         "notifyreadrequestalsorespondtobus": false,
         "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
-        "name": "Luminosité bureau 2",
+        "name": "Luminosité Bureau F09",
         "outputtype": "write",
         "outputRBE": "true",
         "inputRBE": "false",
@@ -780,19 +780,19 @@
         "sendMsgToKNXCode": "",
         "receiveMsgFromKNXCode": "",
         "listenallga": false,
-        "x": 130,
-        "y": 600,
+        "x": 140,
+        "y": 460,
         "wires": [
             [
-                "3ab0a03442d8484d"
+                "7a111043b3d050cc"
             ]
         ]
     },
     {
-        "id": "6ec0ae8c75d452af",
+        "id": "e39973e0a805a8b7",
         "type": "modbus-read",
-        "z": "eb0c2330629d9ddf",
-        "name": "Lecture Modbus 3 registres bureau 2",
+        "z": "a4054732959ec832",
+        "name": "Lecture Modbus 3 registres Bureau F09",
         "topic": "",
         "showStatusActivities": false,
         "logIOActivities": false,
@@ -811,19 +811,19 @@
         "ioFile": "",
         "useIOForPayload": false,
         "emptyMsgOnFail": false,
-        "x": 740,
-        "y": 540,
+        "x": 170,
+        "y": 520,
         "wires": [
             [
-                "27a442acd96b5d6e"
+                "d66bed27db9f377b"
             ],
             []
         ]
     },
     {
-        "id": "27a442acd96b5d6e",
+        "id": "d66bed27db9f377b",
         "type": "function",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "name": "Découper registres en messages KNX",
         "func": "// msg.payload est un tableau des registres lus\nlet registers = msg.payload;\n\n// Crée un tableau de 3 messages pour KNX avec payload et topic/dpt adaptés\nlet msg1 = [\n    {\n        payload: registers[0],\n        topic: \"6/7/14\",  // tempo eclairage\n        dpt: \"7.006\"      \n    },\n]\nlet msg2 = [\n    {\n        payload: registers[1],\n        topic: \"6/5/19\", // Consigne luminosité\n        dpt: \"9.004\"\n    },\n]\nlet msg3 = [\n    {\n        payload: registers[2],\n        topic: \"6/7/16\", // tempo clim\n        dpt: \"7.006\"\n    }\n];\n\nreturn [msg1, msg2, msg3];",
         "outputs": 3,
@@ -832,24 +832,24 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1110,
-        "y": 540,
+        "x": 490,
+        "y": 520,
         "wires": [
             [
-                "0aa653815a35e404"
+                "14248a4eb91aedd6"
             ],
             [
-                "aad711330ce91ef9"
+                "ab9b382ea23da13b"
             ],
             [
-                "8a38c53dbfba74f5"
+                "0bb0f6d3db2981b0"
             ]
         ]
     },
     {
-        "id": "0aa653815a35e404",
+        "id": "14248a4eb91aedd6",
         "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
         "topic": "6/7/14",
         "setTopicType": "str",
@@ -872,16 +872,16 @@
         "sendMsgToKNXCode": "",
         "receiveMsgFromKNXCode": "",
         "listenallga": false,
-        "x": 1500,
-        "y": 440,
+        "x": 860,
+        "y": 420,
         "wires": [
             []
         ]
     },
     {
-        "id": "aad711330ce91ef9",
+        "id": "ab9b382ea23da13b",
         "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
         "topic": "6/5/19",
         "setTopicType": "str",
@@ -904,16 +904,16 @@
         "sendMsgToKNXCode": "",
         "receiveMsgFromKNXCode": "",
         "listenallga": false,
-        "x": 1510,
-        "y": 500,
+        "x": 870,
+        "y": 480,
         "wires": [
             []
         ]
     },
     {
-        "id": "8a38c53dbfba74f5",
+        "id": "0bb0f6d3db2981b0",
         "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
         "topic": "6/7/16",
         "setTopicType": "str",
@@ -936,16 +936,16 @@
         "sendMsgToKNXCode": "",
         "receiveMsgFromKNXCode": "",
         "listenallga": false,
-        "x": 1490,
-        "y": 560,
+        "x": 850,
+        "y": 540,
         "wires": [
             []
         ]
     },
     {
-        "id": "e8cb7b8ac3b16aa7",
+        "id": "b4af86fde719b963",
         "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
         "topic": "6/7/18",
         "setTopicType": "str",
@@ -957,7 +957,7 @@
         "notifywrite": true,
         "notifyreadrequestalsorespondtobus": false,
         "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
-        "name": "Présence bureau 03",
+        "name": "Présence Bureau F06a",
         "outputtype": "write",
         "outputRBE": "true",
         "inputRBE": "false",
@@ -968,19 +968,19 @@
         "sendMsgToKNXCode": "",
         "receiveMsgFromKNXCode": "",
         "listenallga": false,
-        "x": 130,
-        "y": 720,
+        "x": 140,
+        "y": 680,
         "wires": [
             [
-                "a845f64fb88b44e5"
+                "da47fe89aae1065b"
             ]
         ]
     },
     {
-        "id": "a845f64fb88b44e5",
+        "id": "da47fe89aae1065b",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Présence bureau 3",
+        "z": "a4054732959ec832",
+        "name": "Présence Bureau F06a",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -993,18 +993,18 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 430,
-        "y": 720,
+        "x": 450,
+        "y": 680,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "48200b69e1667dc6",
+        "id": "ac030431d92c2cb7",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Luminosité bureau 3",
+        "z": "a4054732959ec832",
+        "name": "Luminosité Bureau F06a",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -1017,17 +1017,17 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 440,
-        "y": 780,
+        "x": 450,
+        "y": 740,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "72dfef65945686ea",
+        "id": "d1bb88f855b0f053",
         "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
         "topic": "6/5/11",
         "setTopicType": "str",
@@ -1039,7 +1039,7 @@
         "notifywrite": true,
         "notifyreadrequestalsorespondtobus": false,
         "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
-        "name": "Luminosité bureau 3",
+        "name": "Luminosité Bureau F06a",
         "outputtype": "write",
         "outputRBE": "true",
         "inputRBE": "false",
@@ -1050,19 +1050,19 @@
         "sendMsgToKNXCode": "",
         "receiveMsgFromKNXCode": "",
         "listenallga": false,
-        "x": 130,
-        "y": 780,
+        "x": 150,
+        "y": 740,
         "wires": [
             [
-                "48200b69e1667dc6"
+                "ac030431d92c2cb7"
             ]
         ]
     },
     {
-        "id": "fd61cd0803b9f270",
+        "id": "d053287f94e9dc30",
         "type": "modbus-read",
-        "z": "eb0c2330629d9ddf",
-        "name": "Lecture Modbus 3 registres bureau 3",
+        "z": "a4054732959ec832",
+        "name": "Lecture Modbus 3 registres Bureau F06a",
         "topic": "",
         "showStatusActivities": false,
         "logIOActivities": false,
@@ -1081,19 +1081,19 @@
         "ioFile": "",
         "useIOForPayload": false,
         "emptyMsgOnFail": false,
-        "x": 740,
-        "y": 720,
+        "x": 180,
+        "y": 800,
         "wires": [
             [
-                "fa2aae44042287c4"
+                "e8cb8f4b4178a3ba"
             ],
             []
         ]
     },
     {
-        "id": "fa2aae44042287c4",
+        "id": "e8cb8f4b4178a3ba",
         "type": "function",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "name": "Découper registres en messages KNX",
         "func": "// msg.payload est un tableau des registres lus\nlet registers = msg.payload;\n\n// Crée un tableau de 3 messages pour KNX avec payload et topic/dpt adaptés\nlet msg1 = [\n    {\n        payload: registers[0],\n        topic: \"6/7/19\",  // tempo eclairage\n        dpt: \"7.006\"\n    },\n]\nlet msg2 = [\n    {\n        payload: registers[1],\n        topic: \"6/5/20\", // Consigne luminosité\n        dpt: \"9.004\"\n    },\n]\nlet msg3 = [\n    {\n        payload: registers[2],\n        topic: \"6/7/21\", // tempo clim\n        dpt: \"7.006\"\n    }\n];\n\nreturn [msg1, msg2, msg3];",
         "outputs": 3,
@@ -1102,24 +1102,24 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1110,
-        "y": 720,
+        "x": 510,
+        "y": 800,
         "wires": [
             [
-                "92acd56414f30d7b"
+                "fcd6f6794d148dda"
             ],
             [
-                "d3616e7da86eada5"
+                "6d89ee133cd141ab"
             ],
             [
-                "9bf001df4eb83472"
+                "c22956e1c54dfd6f"
             ]
         ]
     },
     {
-        "id": "92acd56414f30d7b",
+        "id": "fcd6f6794d148dda",
         "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
         "topic": "6/7/19",
         "setTopicType": "str",
@@ -1142,16 +1142,16 @@
         "sendMsgToKNXCode": "",
         "receiveMsgFromKNXCode": "",
         "listenallga": false,
-        "x": 1500,
-        "y": 620,
+        "x": 860,
+        "y": 700,
         "wires": [
             []
         ]
     },
     {
-        "id": "d3616e7da86eada5",
+        "id": "6d89ee133cd141ab",
         "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
         "topic": "6/5/20",
         "setTopicType": "str",
@@ -1174,16 +1174,16 @@
         "sendMsgToKNXCode": "",
         "receiveMsgFromKNXCode": "",
         "listenallga": false,
-        "x": 1510,
-        "y": 680,
+        "x": 870,
+        "y": 760,
         "wires": [
             []
         ]
     },
     {
-        "id": "9bf001df4eb83472",
+        "id": "c22956e1c54dfd6f",
         "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
         "topic": "6/7/21",
         "setTopicType": "str",
@@ -1206,16 +1206,16 @@
         "sendMsgToKNXCode": "",
         "receiveMsgFromKNXCode": "",
         "listenallga": false,
-        "x": 1490,
-        "y": 740,
+        "x": 850,
+        "y": 820,
         "wires": [
             []
         ]
     },
     {
-        "id": "70a27dfbfe23f488",
+        "id": "ad872a6b2fac2cdd",
         "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
         "topic": "6/7/23",
         "setTopicType": "str",
@@ -1227,7 +1227,7 @@
         "notifywrite": true,
         "notifyreadrequestalsorespondtobus": false,
         "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
-        "name": "Présence bureau 04",
+        "name": "Présence Bureau F11",
         "outputtype": "write",
         "outputRBE": "true",
         "inputRBE": "false",
@@ -1238,48 +1238,24 @@
         "sendMsgToKNXCode": "",
         "receiveMsgFromKNXCode": "",
         "listenallga": false,
-        "x": 130,
-        "y": 900,
+        "x": 140,
+        "y": 960,
         "wires": [
             [
-                "f3a9fe850c7b0652"
+                "68835ac3112433b8"
             ]
         ]
     },
     {
-        "id": "f3a9fe850c7b0652",
+        "id": "68835ac3112433b8",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Présence bureau 4",
+        "z": "a4054732959ec832",
+        "name": "Présence Bureau F11",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
         "unitid": "1",
         "dataType": "Coil",
-        "adr": "40",
-        "quantity": "1",
-        "server": "247636eb43d0af05",
-        "emptyMsgOnFail": false,
-        "keepMsgProperties": false,
-        "delayOnStart": false,
-        "startDelayTime": "",
-        "x": 430,
-        "y": 900,
-        "wires": [
-            [],
-            []
-        ]
-    },
-    {
-        "id": "f8c619d6cd2c31b3",
-        "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Luminosité bureau 4",
-        "showStatusActivities": false,
-        "showErrors": false,
-        "showWarnings": true,
-        "unitid": "1",
-        "dataType": "HoldingRegister",
         "adr": "40",
         "quantity": "1",
         "server": "247636eb43d0af05",
@@ -1295,9 +1271,33 @@
         ]
     },
     {
-        "id": "c75ae5b794f8b62c",
+        "id": "932562e5fede29c1",
+        "type": "modbus-write",
+        "z": "a4054732959ec832",
+        "name": "Luminosité Bureau F11",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "1",
+        "dataType": "HoldingRegister",
+        "adr": "40",
+        "quantity": "1",
+        "server": "247636eb43d0af05",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 450,
+        "y": 1020,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "64da0cc8193e07a8",
         "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
         "topic": "6/5/10",
         "setTopicType": "str",
@@ -1309,7 +1309,7 @@
         "notifywrite": true,
         "notifyreadrequestalsorespondtobus": false,
         "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
-        "name": "Luminosité bureau 4",
+        "name": "Luminosité Bureau F11",
         "outputtype": "write",
         "outputRBE": "true",
         "inputRBE": "false",
@@ -1320,19 +1320,19 @@
         "sendMsgToKNXCode": "",
         "receiveMsgFromKNXCode": "",
         "listenallga": false,
-        "x": 130,
-        "y": 960,
+        "x": 140,
+        "y": 1020,
         "wires": [
             [
-                "f8c619d6cd2c31b3"
+                "932562e5fede29c1"
             ]
         ]
     },
     {
-        "id": "11ad0f0e8e974e52",
+        "id": "f365b33c0547c0aa",
         "type": "modbus-read",
-        "z": "eb0c2330629d9ddf",
-        "name": "Lecture Modbus 3 registres bureau 4",
+        "z": "a4054732959ec832",
+        "name": "Lecture Modbus 3 registres Bureau F11",
         "topic": "",
         "showStatusActivities": false,
         "logIOActivities": false,
@@ -1351,19 +1351,19 @@
         "ioFile": "",
         "useIOForPayload": false,
         "emptyMsgOnFail": false,
-        "x": 740,
-        "y": 900,
+        "x": 170,
+        "y": 1080,
         "wires": [
             [
-                "758bd22b2d420577"
+                "b8e2f699df76b565"
             ],
             []
         ]
     },
     {
-        "id": "758bd22b2d420577",
+        "id": "b8e2f699df76b565",
         "type": "function",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "name": "Découper registres en messages KNX",
         "func": "// msg.payload est un tableau des registres lus\nlet registers = msg.payload;\n\n// Crée un tableau de 3 messages pour KNX avec payload et topic/dpt adaptés\nlet msg1 = [\n    {\n        payload: registers[0],\n        topic: \"6/7/24\",  // tempo eclairage\n        dpt: \"7.006\"\n    },\n]\nlet msg2 = [\n    {\n        payload: registers[1],\n        topic: \"6/5/21\", // Consigne luminosité\n        dpt: \"9.004\"\n    },\n]\nlet msg3 = [\n    {\n        payload: registers[2],\n        topic: \"6/7/26\", // tempo clim\n        dpt: \"7.006\"\n    }\n];\n\nreturn [msg1, msg2, msg3];",
         "outputs": 3,
@@ -1372,24 +1372,24 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1110,
-        "y": 900,
+        "x": 490,
+        "y": 1080,
         "wires": [
             [
-                "d7c5fb886bd39afc"
+                "80b0e4dd04ee4b1f"
             ],
             [
-                "c27a3c38d30360f3"
+                "06c7dd7069782456"
             ],
             [
-                "a6bd905b11aa5883"
+                "15eb3d3167fe41f0"
             ]
         ]
     },
     {
-        "id": "d7c5fb886bd39afc",
+        "id": "80b0e4dd04ee4b1f",
         "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
         "topic": "6/7/24",
         "setTopicType": "str",
@@ -1412,16 +1412,16 @@
         "sendMsgToKNXCode": "",
         "receiveMsgFromKNXCode": "",
         "listenallga": false,
-        "x": 1500,
-        "y": 800,
+        "x": 860,
+        "y": 980,
         "wires": [
             []
         ]
     },
     {
-        "id": "c27a3c38d30360f3",
+        "id": "06c7dd7069782456",
         "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
         "topic": "6/5/21",
         "setTopicType": "str",
@@ -1444,16 +1444,16 @@
         "sendMsgToKNXCode": "",
         "receiveMsgFromKNXCode": "",
         "listenallga": false,
-        "x": 1510,
-        "y": 860,
+        "x": 870,
+        "y": 1040,
         "wires": [
             []
         ]
     },
     {
-        "id": "a6bd905b11aa5883",
+        "id": "15eb3d3167fe41f0",
         "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
         "topic": "6/7/26",
         "setTopicType": "str",
@@ -1476,16 +1476,16 @@
         "sendMsgToKNXCode": "",
         "receiveMsgFromKNXCode": "",
         "listenallga": false,
-        "x": 1490,
-        "y": 920,
+        "x": 850,
+        "y": 1100,
         "wires": [
             []
         ]
     },
     {
-        "id": "169e2996c2fcbd58",
+        "id": "5464208f7a21f6ee",
         "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
         "topic": "6/7/28",
         "setTopicType": "str",
@@ -1497,7 +1497,7 @@
         "notifywrite": true,
         "notifyreadrequestalsorespondtobus": false,
         "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
-        "name": "Présence bureau 05",
+        "name": "Présence Bureau F04",
         "outputtype": "write",
         "outputRBE": "true",
         "inputRBE": "false",
@@ -1508,19 +1508,19 @@
         "sendMsgToKNXCode": "",
         "receiveMsgFromKNXCode": "",
         "listenallga": false,
-        "x": 130,
-        "y": 1080,
+        "x": 140,
+        "y": 1240,
         "wires": [
             [
-                "e1b9f29e03b0f5c0"
+                "d907a79e07d34843"
             ]
         ]
     },
     {
-        "id": "e1b9f29e03b0f5c0",
+        "id": "d907a79e07d34843",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Présence bureau 5",
+        "z": "a4054732959ec832",
+        "name": "Présence Bureau F04",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -1533,18 +1533,18 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 430,
-        "y": 1080,
+        "x": 440,
+        "y": 1240,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "f9ddd839531dcbba",
+        "id": "ec45ddff44d93368",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Luminosité bureau 5",
+        "z": "a4054732959ec832",
+        "name": "Luminosité Bureau F04",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -1557,17 +1557,17 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 440,
-        "y": 1140,
+        "x": 450,
+        "y": 1300,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "385aa29a7e1ef691",
+        "id": "b0cc34bedb65f227",
         "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
         "topic": "6/5/9",
         "setTopicType": "str",
@@ -1579,7 +1579,7 @@
         "notifywrite": true,
         "notifyreadrequestalsorespondtobus": false,
         "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
-        "name": "Luminosité bureau 5",
+        "name": "Luminosité Bureau F04",
         "outputtype": "write",
         "outputRBE": "true",
         "inputRBE": "false",
@@ -1590,19 +1590,19 @@
         "sendMsgToKNXCode": "",
         "receiveMsgFromKNXCode": "",
         "listenallga": false,
-        "x": 130,
-        "y": 1140,
+        "x": 140,
+        "y": 1300,
         "wires": [
             [
-                "f9ddd839531dcbba"
+                "ec45ddff44d93368"
             ]
         ]
     },
     {
-        "id": "d67b06b70ff92eee",
+        "id": "df79bc0480297a1e",
         "type": "modbus-read",
-        "z": "eb0c2330629d9ddf",
-        "name": "Lecture Modbus 3 registres bureau 5",
+        "z": "a4054732959ec832",
+        "name": "Lecture Modbus 3 registres Bureau F04",
         "topic": "",
         "showStatusActivities": false,
         "logIOActivities": false,
@@ -1621,19 +1621,19 @@
         "ioFile": "",
         "useIOForPayload": false,
         "emptyMsgOnFail": false,
-        "x": 740,
-        "y": 1080,
+        "x": 170,
+        "y": 1360,
         "wires": [
             [
-                "317226a2dbc29fc2"
+                "ba9467fc72442947"
             ],
             []
         ]
     },
     {
-        "id": "317226a2dbc29fc2",
+        "id": "ba9467fc72442947",
         "type": "function",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "name": "Découper registres en messages KNX",
         "func": "// msg.payload est un tableau des registres lus\nlet registers = msg.payload;\n\n// Crée un tableau de 3 messages pour KNX avec payload et topic/dpt adaptés\nlet msg1 = [\n    {\n        payload: registers[0],\n        topic: \"6/7/29\",  // tempo eclairage\n        dpt: \"7.006\"      \n    },\n]\nlet msg2 = [\n    {\n        payload: registers[1],\n        topic: \"6/5/22\", // Consigne luminosité\n        dpt: \"9.004\"\n    },\n]\nlet msg3 = [\n    {\n        payload: registers[2],\n        topic: \"6/7/31\", // tempo clim\n        dpt: \"7.006\"\n    }\n];\n\nreturn [msg1, msg2, msg3];",
         "outputs": 3,
@@ -1642,24 +1642,24 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1110,
-        "y": 1080,
+        "x": 490,
+        "y": 1360,
         "wires": [
             [
-                "6810bca3e2b3b42a"
+                "4c830bf4535cd2b6"
             ],
             [
-                "77eafef68f2e5a09"
+                "869fbc02e6dd32a7"
             ],
             [
-                "c46f50fe47055850"
+                "23c54dd78acff371"
             ]
         ]
     },
     {
-        "id": "6810bca3e2b3b42a",
+        "id": "4c830bf4535cd2b6",
         "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
         "topic": "6/7/29",
         "setTopicType": "str",
@@ -1682,16 +1682,16 @@
         "sendMsgToKNXCode": "",
         "receiveMsgFromKNXCode": "",
         "listenallga": false,
-        "x": 1500,
-        "y": 980,
+        "x": 860,
+        "y": 1260,
         "wires": [
             []
         ]
     },
     {
-        "id": "77eafef68f2e5a09",
+        "id": "869fbc02e6dd32a7",
         "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
         "topic": "6/5/22",
         "setTopicType": "str",
@@ -1714,16 +1714,16 @@
         "sendMsgToKNXCode": "",
         "receiveMsgFromKNXCode": "",
         "listenallga": false,
-        "x": 1510,
-        "y": 1040,
+        "x": 870,
+        "y": 1320,
         "wires": [
             []
         ]
     },
     {
-        "id": "c46f50fe47055850",
+        "id": "23c54dd78acff371",
         "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
         "topic": "6/7/31",
         "setTopicType": "str",
@@ -1746,16 +1746,16 @@
         "sendMsgToKNXCode": "",
         "receiveMsgFromKNXCode": "",
         "listenallga": false,
-        "x": 1490,
-        "y": 1100,
+        "x": 850,
+        "y": 1380,
         "wires": [
             []
         ]
     },
     {
-        "id": "e4946d855a9563a6",
+        "id": "55690c99d4553beb",
         "type": "function",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "name": "Découper registres modbus",
         "func": "let registers = msg.payload;\n\nlet msg1 = {\n    payload: registers[0],  // valeur 1\n};\nlet msg2 = {\n    payload: registers[1],  // valeur 2\n};\nlet msg3 = {\n    payload: registers[2],  // valeur 3\n};\nlet msg4 = {\n    payload: registers[3],  // valeur 4\n};\nlet msg5 = {\n    payload: registers[4],  // valeur 5\n};\nlet msg6 = {\n    payload: registers[14],  // valeur 6\n};\n\nreturn [msg1, msg2, msg3, msg4, msg5, msg6];",
         "outputs": 6,
@@ -1764,34 +1764,34 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 560,
-        "y": 1780,
+        "x": 1600,
+        "y": 680,
         "wires": [
             [
-                "f8d4d82ded51b561"
+                "233cc3d6ead778cf"
             ],
             [
-                "c1b92712588a42e1"
+                "3c4caa91ba5e3686"
             ],
             [
-                "e6df2a58e164b61e"
+                "405fab96204b34e7"
             ],
             [
-                "cfb9ee85b0b383f7"
+                "ea1e4e72cd260e48"
             ],
             [
-                "f2107245516e4553"
+                "4a2ac3914f3ae7a2"
             ],
             [
-                "158acb3e7553268e"
+                "24e0b319b79b7ab3"
             ]
         ]
     },
     {
-        "id": "f8d4d82ded51b561",
+        "id": "233cc3d6ead778cf",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Marche Clim Bureau 3",
+        "z": "a4054732959ec832",
+        "name": "Marche Clim Bureau F06a",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -1804,18 +1804,18 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 940,
-        "y": 1720,
+        "x": 1980,
+        "y": 620,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "c1b92712588a42e1",
+        "id": "3c4caa91ba5e3686",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Mode Clim Bureau 3",
+        "z": "a4054732959ec832",
+        "name": "Mode Clim Bureau F06a",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -1828,18 +1828,18 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 940,
-        "y": 1760,
+        "x": 1980,
+        "y": 660,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "e6df2a58e164b61e",
+        "id": "405fab96204b34e7",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Consigne Clim Bureau 3",
+        "z": "a4054732959ec832",
+        "name": "Consigne Clim Bureau F06a",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -1852,18 +1852,18 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 950,
-        "y": 1800,
+        "x": 1990,
+        "y": 700,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "cfb9ee85b0b383f7",
+        "id": "ea1e4e72cd260e48",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Ventil Clim Bureau 3",
+        "z": "a4054732959ec832",
+        "name": "Ventil Clim Bureau F06a",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -1876,18 +1876,18 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 940,
-        "y": 1840,
+        "x": 1980,
+        "y": 740,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "f2107245516e4553",
+        "id": "4a2ac3914f3ae7a2",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Consigne mini Clim Bureau 3",
+        "z": "a4054732959ec832",
+        "name": "Consigne mini Clim Bureau F06a",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -1900,18 +1900,18 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 960,
-        "y": 1880,
+        "x": 2000,
+        "y": 780,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "158acb3e7553268e",
+        "id": "24e0b319b79b7ab3",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Temp reprise Clim Bureau 3",
+        "z": "a4054732959ec832",
+        "name": "Temp reprise Clim Bureau F06a",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -1924,18 +1924,18 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 960,
-        "y": 1920,
+        "x": 2000,
+        "y": 820,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "280ffee02a221975",
+        "id": "896bc040dddcc005",
         "type": "modbus-read",
-        "z": "eb0c2330629d9ddf",
-        "name": "Lecture Modbus 15 registres bureau 3",
+        "z": "a4054732959ec832",
+        "name": "Lecture Modbus 15 registres Bureau F06a",
         "topic": "",
         "showStatusActivities": false,
         "logIOActivities": false,
@@ -1954,19 +1954,19 @@
         "ioFile": "",
         "useIOForPayload": false,
         "emptyMsgOnFail": false,
-        "x": 190,
-        "y": 1780,
+        "x": 1230,
+        "y": 680,
         "wires": [
             [
-                "e4946d855a9563a6"
+                "55690c99d4553beb"
             ],
             []
         ]
     },
     {
-        "id": "bae60e6aaebbfc08",
+        "id": "759e03ea7e559ce8",
         "type": "function",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "name": "Découper registres modbus",
         "func": "let registers = msg.payload;\n\nlet msg1 = {\n    payload: registers[0],  // valeur 1\n};\nlet msg2 = {\n    payload: registers[1],  // valeur 2\n};\nlet msg3 = {\n    payload: registers[2],  // valeur 3\n};\nlet msg4 = {\n    payload: registers[3],  // valeur 4\n};\nlet msg5 = {\n    payload: registers[4],  // valeur 5\n};\nlet msg6 = {\n    payload: registers[14],  // valeur 6\n};\n\nreturn [msg1, msg2, msg3, msg4, msg5, msg6];",
         "outputs": 6,
@@ -1975,34 +1975,34 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 560,
-        "y": 2060,
+        "x": 1590,
+        "y": 960,
         "wires": [
             [
-                "7dd081c006b2994f"
+                "38748e7394ae5d29"
             ],
             [
-                "7e2073b375d61075"
+                "efd7c880ad4d1a28"
             ],
             [
-                "48df0a4cd408c381"
+                "36c7224b6e0cf928"
             ],
             [
-                "6f5146c7f71cdd19"
+                "a5cd941b7db50835"
             ],
             [
-                "a254b35992fabfe2"
+                "1222ff00b6a75027"
             ],
             [
-                "1bf583f410cd089b"
+                "e5eea781231bdfa3"
             ]
         ]
     },
     {
-        "id": "7dd081c006b2994f",
+        "id": "38748e7394ae5d29",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Marche Clim Bureau 4",
+        "z": "a4054732959ec832",
+        "name": "Marche Clim Bureau F11",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -2015,18 +2015,18 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 940,
-        "y": 2000,
+        "x": 1970,
+        "y": 900,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "7e2073b375d61075",
+        "id": "efd7c880ad4d1a28",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Mode Clim Bureau 4",
+        "z": "a4054732959ec832",
+        "name": "Mode Clim Bureau F11",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -2039,18 +2039,18 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 940,
-        "y": 2040,
+        "x": 1970,
+        "y": 940,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "48df0a4cd408c381",
+        "id": "36c7224b6e0cf928",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Consigne Clim Bureau 4",
+        "z": "a4054732959ec832",
+        "name": "Consigne Clim Bureau F11",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -2063,18 +2063,18 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 950,
-        "y": 2080,
+        "x": 1980,
+        "y": 980,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "6f5146c7f71cdd19",
+        "id": "a5cd941b7db50835",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Ventil Clim Bureau 4",
+        "z": "a4054732959ec832",
+        "name": "Ventil Clim Bureau F11",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -2087,18 +2087,18 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 940,
-        "y": 2120,
+        "x": 1970,
+        "y": 1020,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "a254b35992fabfe2",
+        "id": "1222ff00b6a75027",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Consigne mini Clim Bureau 4",
+        "z": "a4054732959ec832",
+        "name": "Consigne mini Clim Bureau F11",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -2111,18 +2111,18 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 960,
-        "y": 2160,
+        "x": 1990,
+        "y": 1060,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "1bf583f410cd089b",
+        "id": "e5eea781231bdfa3",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Temp reprise Clim Bureau 4",
+        "z": "a4054732959ec832",
+        "name": "Temp reprise Clim Bureau F11",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -2135,18 +2135,18 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 960,
-        "y": 2200,
+        "x": 1990,
+        "y": 1100,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "685bdd4e70c03c9f",
+        "id": "2d56250631f4b56a",
         "type": "modbus-read",
-        "z": "eb0c2330629d9ddf",
-        "name": "Lecture Modbus 15 registres bureau 4",
+        "z": "a4054732959ec832",
+        "name": "Lecture Modbus 15 registres Bureau F11",
         "topic": "",
         "showStatusActivities": false,
         "logIOActivities": false,
@@ -2165,19 +2165,19 @@
         "ioFile": "",
         "useIOForPayload": false,
         "emptyMsgOnFail": false,
-        "x": 190,
-        "y": 2060,
+        "x": 1220,
+        "y": 960,
         "wires": [
             [
-                "bae60e6aaebbfc08"
+                "759e03ea7e559ce8"
             ],
             []
         ]
     },
     {
-        "id": "f7777d675b301529",
+        "id": "b15074051d371582",
         "type": "function",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "name": "Découper registres modbus",
         "func": "let registers = msg.payload;\n\nlet msg1 = {\n    payload: registers[0],  // valeur 1\n};\nlet msg2 = {\n    payload: registers[1],  // valeur 2\n};\nlet msg3 = {\n    payload: registers[2],  // valeur 3\n};\nlet msg4 = {\n    payload: registers[3],  // valeur 4\n};\nlet msg5 = {\n    payload: registers[4],  // valeur 5\n};\nlet msg6 = {\n    payload: registers[14],  // valeur 6\n};\n\nreturn [msg1, msg2, msg3, msg4, msg5, msg6];",
         "outputs": 6,
@@ -2186,34 +2186,34 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 560,
-        "y": 2340,
+        "x": 1620,
+        "y": 1240,
         "wires": [
             [
-                "eef9c5c9651e131f"
+                "57779af79a212da7"
             ],
             [
-                "5aa8c0f154b8dfc2"
+                "cb97d9c9c9f1f982"
             ],
             [
-                "e21e43564f31182d"
+                "e8bba647315a6dfc"
             ],
             [
-                "a5e38983fc9810f0"
+                "c56754f6cb2c73a8"
             ],
             [
-                "b2efaecce5b14471"
+                "3c2401d7b92145ed"
             ],
             [
-                "7953323b50f91297"
+                "0ab7fec20bf2a039"
             ]
         ]
     },
     {
-        "id": "eef9c5c9651e131f",
+        "id": "57779af79a212da7",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Marche Clim Bureau 5",
+        "z": "a4054732959ec832",
+        "name": "Marche Clim Bureau F04",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -2226,18 +2226,18 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 940,
-        "y": 2280,
+        "x": 2000,
+        "y": 1180,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "5aa8c0f154b8dfc2",
+        "id": "cb97d9c9c9f1f982",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Mode Clim Bureau 5",
+        "z": "a4054732959ec832",
+        "name": "Mode Clim Bureau F04",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -2250,18 +2250,18 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 940,
-        "y": 2320,
+        "x": 2000,
+        "y": 1220,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "e21e43564f31182d",
+        "id": "e8bba647315a6dfc",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Consigne Clim Bureau 5",
+        "z": "a4054732959ec832",
+        "name": "Consigne Clim Bureau F04",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -2274,18 +2274,18 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 950,
-        "y": 2360,
+        "x": 2010,
+        "y": 1260,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "a5e38983fc9810f0",
+        "id": "c56754f6cb2c73a8",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Ventil Clim Bureau 5",
+        "z": "a4054732959ec832",
+        "name": "Ventil Clim Bureau F04",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -2298,18 +2298,18 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 940,
-        "y": 2400,
+        "x": 2000,
+        "y": 1300,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "b2efaecce5b14471",
+        "id": "3c2401d7b92145ed",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Consigne mini Clim Bureau 5",
+        "z": "a4054732959ec832",
+        "name": "Consigne mini Clim Bureau F04",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -2322,18 +2322,18 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 960,
-        "y": 2440,
+        "x": 2020,
+        "y": 1340,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "7953323b50f91297",
+        "id": "0ab7fec20bf2a039",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Temp reprise Clim Bureau 5",
+        "z": "a4054732959ec832",
+        "name": "Temp reprise Clim Bureau F04",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -2346,18 +2346,18 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 960,
-        "y": 2480,
+        "x": 2020,
+        "y": 1380,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "20423e8e31ca6f8f",
+        "id": "d83a35bd443c4250",
         "type": "modbus-read",
-        "z": "eb0c2330629d9ddf",
-        "name": "Lecture Modbus 15 registres bureau 5",
+        "z": "a4054732959ec832",
+        "name": "Lecture Modbus 15 registres Bureau F04",
         "topic": "",
         "showStatusActivities": false,
         "logIOActivities": false,
@@ -2376,349 +2376,19 @@
         "ioFile": "",
         "useIOForPayload": false,
         "emptyMsgOnFail": false,
-        "x": 190,
-        "y": 2340,
+        "x": 1220,
+        "y": 1240,
         "wires": [
             [
-                "f7777d675b301529"
+                "b15074051d371582"
             ],
             []
         ]
     },
     {
-        "id": "45b8ce4faf124471",
-        "type": "modbus-read",
-        "z": "eb0c2330629d9ddf",
-        "d": true,
-        "name": "Mode eclairage Bureau 1",
-        "topic": "",
-        "showStatusActivities": false,
-        "logIOActivities": false,
-        "showErrors": false,
-        "showWarnings": true,
-        "unitid": "",
-        "dataType": "Coil",
-        "adr": "11",
-        "quantity": "1",
-        "rate": "2000",
-        "rateUnit": "ms",
-        "delayOnStart": false,
-        "startDelayTime": "",
-        "server": "247636eb43d0af05",
-        "useIOFile": false,
-        "ioFile": "",
-        "useIOForPayload": false,
-        "emptyMsgOnFail": false,
-        "x": 710,
-        "y": 420,
-        "wires": [
-            [
-                "5e66425d93acfeb1"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "5e66425d93acfeb1",
-        "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
-        "d": true,
-        "server": "dc1f53e2fc56ad70",
-        "topic": "6/7/9",
-        "setTopicType": "str",
-        "outputtopic": "",
-        "dpt": "1.001",
-        "initialread": 0,
-        "notifyreadrequest": false,
-        "notifyresponse": false,
-        "notifywrite": true,
-        "notifyreadrequestalsorespondtobus": false,
-        "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
-        "name": "Mode eclairage",
-        "outputtype": "write",
-        "outputRBE": "true",
-        "inputRBE": "false",
-        "formatmultiplyvalue": 1,
-        "formatnegativevalue": "leave",
-        "formatdecimalsvalue": 999,
-        "passthrough": "no",
-        "sendMsgToKNXCode": "",
-        "receiveMsgFromKNXCode": "",
-        "listenallga": false,
-        "x": 980,
-        "y": 420,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "208c652b9715e4f1",
-        "type": "modbus-read",
-        "z": "eb0c2330629d9ddf",
-        "d": true,
-        "name": "Mode eclairage Bureau 2",
-        "topic": "",
-        "showStatusActivities": false,
-        "logIOActivities": false,
-        "showErrors": false,
-        "showWarnings": true,
-        "unitid": "",
-        "dataType": "Coil",
-        "adr": "21",
-        "quantity": "1",
-        "rate": "2000",
-        "rateUnit": "ms",
-        "delayOnStart": false,
-        "startDelayTime": "",
-        "server": "247636eb43d0af05",
-        "useIOFile": false,
-        "ioFile": "",
-        "useIOForPayload": false,
-        "emptyMsgOnFail": false,
-        "x": 710,
-        "y": 600,
-        "wires": [
-            [
-                "d58ea6726f1def0a"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "d58ea6726f1def0a",
-        "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
-        "d": true,
-        "server": "dc1f53e2fc56ad70",
-        "topic": "6/7/15",
-        "setTopicType": "str",
-        "outputtopic": "",
-        "dpt": "1.001",
-        "initialread": 0,
-        "notifyreadrequest": false,
-        "notifyresponse": false,
-        "notifywrite": true,
-        "notifyreadrequestalsorespondtobus": false,
-        "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
-        "name": "Mode eclairage",
-        "outputtype": "write",
-        "outputRBE": "true",
-        "inputRBE": "false",
-        "formatmultiplyvalue": 1,
-        "formatnegativevalue": "leave",
-        "formatdecimalsvalue": 999,
-        "passthrough": "no",
-        "sendMsgToKNXCode": "",
-        "receiveMsgFromKNXCode": "",
-        "listenallga": false,
-        "x": 980,
-        "y": 600,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "236bb234a54e3388",
-        "type": "modbus-read",
-        "z": "eb0c2330629d9ddf",
-        "d": true,
-        "name": "Mode eclairage Bureau 3",
-        "topic": "",
-        "showStatusActivities": false,
-        "logIOActivities": false,
-        "showErrors": false,
-        "showWarnings": true,
-        "unitid": "",
-        "dataType": "Coil",
-        "adr": "31",
-        "quantity": "1",
-        "rate": "2000",
-        "rateUnit": "ms",
-        "delayOnStart": false,
-        "startDelayTime": "",
-        "server": "247636eb43d0af05",
-        "useIOFile": false,
-        "ioFile": "",
-        "useIOForPayload": false,
-        "emptyMsgOnFail": false,
-        "x": 710,
-        "y": 780,
-        "wires": [
-            [
-                "67cf6b566bfa3066"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "67cf6b566bfa3066",
-        "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
-        "d": true,
-        "server": "dc1f53e2fc56ad70",
-        "topic": "6/7/20",
-        "setTopicType": "str",
-        "outputtopic": "",
-        "dpt": "1.001",
-        "initialread": 0,
-        "notifyreadrequest": false,
-        "notifyresponse": false,
-        "notifywrite": true,
-        "notifyreadrequestalsorespondtobus": false,
-        "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
-        "name": "Mode eclairage",
-        "outputtype": "write",
-        "outputRBE": "true",
-        "inputRBE": "false",
-        "formatmultiplyvalue": 1,
-        "formatnegativevalue": "leave",
-        "formatdecimalsvalue": 999,
-        "passthrough": "no",
-        "sendMsgToKNXCode": "",
-        "receiveMsgFromKNXCode": "",
-        "listenallga": false,
-        "x": 980,
-        "y": 780,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "5cd0cb5d2a37cd20",
-        "type": "modbus-read",
-        "z": "eb0c2330629d9ddf",
-        "d": true,
-        "name": "Mode eclairage Bureau 4",
-        "topic": "",
-        "showStatusActivities": false,
-        "logIOActivities": false,
-        "showErrors": false,
-        "showWarnings": true,
-        "unitid": "",
-        "dataType": "Coil",
-        "adr": "41",
-        "quantity": "1",
-        "rate": "2000",
-        "rateUnit": "ms",
-        "delayOnStart": false,
-        "startDelayTime": "",
-        "server": "247636eb43d0af05",
-        "useIOFile": false,
-        "ioFile": "",
-        "useIOForPayload": false,
-        "emptyMsgOnFail": false,
-        "x": 710,
-        "y": 960,
-        "wires": [
-            [
-                "33c4b812e8b9c360"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "33c4b812e8b9c360",
-        "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
-        "d": true,
-        "server": "dc1f53e2fc56ad70",
-        "topic": "6/7/25",
-        "setTopicType": "str",
-        "outputtopic": "",
-        "dpt": "1.001",
-        "initialread": 0,
-        "notifyreadrequest": false,
-        "notifyresponse": false,
-        "notifywrite": true,
-        "notifyreadrequestalsorespondtobus": false,
-        "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
-        "name": "Mode eclairage",
-        "outputtype": "write",
-        "outputRBE": "true",
-        "inputRBE": "false",
-        "formatmultiplyvalue": 1,
-        "formatnegativevalue": "leave",
-        "formatdecimalsvalue": 999,
-        "passthrough": "no",
-        "sendMsgToKNXCode": "",
-        "receiveMsgFromKNXCode": "",
-        "listenallga": false,
-        "x": 980,
-        "y": 960,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "ed0883bf9880eb26",
-        "type": "modbus-read",
-        "z": "eb0c2330629d9ddf",
-        "d": true,
-        "name": "Mode eclairage Bureau 5",
-        "topic": "",
-        "showStatusActivities": false,
-        "logIOActivities": false,
-        "showErrors": false,
-        "showWarnings": true,
-        "unitid": "",
-        "dataType": "Coil",
-        "adr": "51",
-        "quantity": "1",
-        "rate": "2000",
-        "rateUnit": "ms",
-        "delayOnStart": false,
-        "startDelayTime": "",
-        "server": "247636eb43d0af05",
-        "useIOFile": false,
-        "ioFile": "",
-        "useIOForPayload": false,
-        "emptyMsgOnFail": false,
-        "x": 710,
-        "y": 1140,
-        "wires": [
-            [
-                "f0b2b0dd1cdb41dc"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "f0b2b0dd1cdb41dc",
-        "type": "knxUltimate",
-        "z": "eb0c2330629d9ddf",
-        "d": true,
-        "server": "dc1f53e2fc56ad70",
-        "topic": "6/7/30",
-        "setTopicType": "str",
-        "outputtopic": "",
-        "dpt": "1.001",
-        "initialread": 0,
-        "notifyreadrequest": false,
-        "notifyresponse": false,
-        "notifywrite": true,
-        "notifyreadrequestalsorespondtobus": false,
-        "notifyreadrequestalsorespondtobusdefaultvalueifnotinitialized": "0",
-        "name": "Mode eclairage",
-        "outputtype": "write",
-        "outputRBE": "true",
-        "inputRBE": "false",
-        "formatmultiplyvalue": 1,
-        "formatnegativevalue": "leave",
-        "formatdecimalsvalue": 999,
-        "passthrough": "no",
-        "sendMsgToKNXCode": "",
-        "receiveMsgFromKNXCode": "",
-        "listenallga": false,
-        "x": 980,
-        "y": 1140,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "5bde571526566ea1",
+        "id": "1d617714c876b263",
         "type": "function",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "name": "Découper registres modbus",
         "func": "let registers = msg.payload;\n\nlet msg1 = {\n    payload: registers[0],  // valeur 1\n};\nlet msg2 = {\n    payload: registers[1],  // valeur 2\n};\nlet msg3 = {\n    payload: registers[2],  // valeur 3\n};\nlet msg4 = {\n    payload: registers[3],  // valeur 4\n};\nlet msg5 = {\n    payload: registers[4],  // valeur 5\n};\nlet msg6 = {\n    payload: registers[14],  // valeur 6\n};\n\nreturn [msg1, msg2, msg3, msg4, msg5, msg6];",
         "outputs": 6,
@@ -2727,34 +2397,34 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 560,
-        "y": 1520,
+        "x": 1600,
+        "y": 400,
         "wires": [
             [
-                "ad16b529859c5327"
+                "7e7ec27a7db7b649"
             ],
             [
-                "8cceb86482ce3c3b"
+                "59aee76c43c7d725"
             ],
             [
-                "f5bf7f62320c3302"
+                "ba64a0f2cfd2a7a1"
             ],
             [
-                "459f90f5ac9cbc56"
+                "3e16dd5a1805f113"
             ],
             [
-                "86048993e4f252f1"
+                "d8ac858a0576938c"
             ],
             [
-                "cd2d840d6e15bee5"
+                "f9b92af54629e4e5"
             ]
         ]
     },
     {
-        "id": "ad16b529859c5327",
+        "id": "7e7ec27a7db7b649",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Marche Clim Bureau 2",
+        "z": "a4054732959ec832",
+        "name": "Marche Clim Bureau F09",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -2767,17 +2437,17 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 940,
-        "y": 1460,
+        "x": 1980,
+        "y": 340,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "8cceb86482ce3c3b",
+        "id": "59aee76c43c7d725",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "name": "Mode Clim Bureau2",
         "showStatusActivities": false,
         "showErrors": false,
@@ -2791,18 +2461,18 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 940,
-        "y": 1500,
+        "x": 1980,
+        "y": 380,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "f5bf7f62320c3302",
+        "id": "ba64a0f2cfd2a7a1",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Consigne Clim Bureau 2",
+        "z": "a4054732959ec832",
+        "name": "Consigne Clim Bureau F09",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -2815,18 +2485,18 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 950,
-        "y": 1540,
+        "x": 1990,
+        "y": 420,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "459f90f5ac9cbc56",
+        "id": "3e16dd5a1805f113",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Ventil Clim Bureau 2",
+        "z": "a4054732959ec832",
+        "name": "Ventil Clim Bureau F09",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -2839,18 +2509,18 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 940,
-        "y": 1580,
+        "x": 1980,
+        "y": 460,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "86048993e4f252f1",
+        "id": "d8ac858a0576938c",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Consigne mini Clim Bureau 2",
+        "z": "a4054732959ec832",
+        "name": "Consigne mini Clim Bureau F09",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -2863,18 +2533,18 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 960,
-        "y": 1620,
+        "x": 2000,
+        "y": 500,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "cd2d840d6e15bee5",
+        "id": "f9b92af54629e4e5",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Temp reprise Clim Bureau 2",
+        "z": "a4054732959ec832",
+        "name": "Temp reprise Clim Bureau F09",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -2887,18 +2557,18 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 960,
-        "y": 1660,
+        "x": 2000,
+        "y": 540,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "88cac85a19da55e3",
+        "id": "0d6d537613c6a735",
         "type": "modbus-read",
-        "z": "eb0c2330629d9ddf",
-        "name": "Lecture Modbus 15 registres bureau 2",
+        "z": "a4054732959ec832",
+        "name": "Lecture Modbus 15 registres Bureau F09",
         "topic": "",
         "showStatusActivities": false,
         "logIOActivities": false,
@@ -2917,19 +2587,19 @@
         "ioFile": "",
         "useIOForPayload": false,
         "emptyMsgOnFail": false,
-        "x": 190,
-        "y": 1520,
+        "x": 1230,
+        "y": 400,
         "wires": [
             [
-                "5bde571526566ea1"
+                "1d617714c876b263"
             ],
             []
         ]
     },
     {
-        "id": "dafab51fce16c0c6",
+        "id": "02b250eb9c96e1bd",
         "type": "function",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "name": "Découper registres modbus",
         "func": "let registers = msg.payload;\n\nlet msg1 = {\n    payload: registers[0],  // valeur 1\n};\nlet msg2 = {\n    payload: registers[1],  // valeur 2\n};\nlet msg3 = {\n    payload: registers[2],  // valeur 3\n};\nlet msg4 = {\n    payload: registers[3],  // valeur 4\n};\nlet msg5 = {\n    payload: registers[4],  // valeur 5\n};\nlet msg6 = {\n    payload: registers[14],  // valeur 6\n};\n\nreturn [msg1, msg2, msg3, msg4, msg5, msg6];",
         "outputs": 6,
@@ -2938,34 +2608,34 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 560,
-        "y": 1260,
+        "x": 1600,
+        "y": 100,
         "wires": [
             [
-                "39cd33183636998e"
+                "457d95d7c4691a9c"
             ],
             [
-                "45feb960a2672471"
+                "c4f1300ef4fbfd75"
             ],
             [
-                "d454c2858f916723"
+                "bd3b1222f47bcdf3"
             ],
             [
-                "e67ba31cd453f12e"
+                "e8cb3483c437d5a2"
             ],
             [
-                "f7534c82dcf7e14a"
+                "cb8f882cca550726"
             ],
             [
-                "a898a22f381e0bc0"
+                "111dff72dd927459"
             ]
         ]
     },
     {
-        "id": "39cd33183636998e",
+        "id": "457d95d7c4691a9c",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Marche Clim Bureau 1",
+        "z": "a4054732959ec832",
+        "name": "Marche Clim Bureau F09bis",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -2978,42 +2648,18 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 940,
-        "y": 1200,
+        "x": 1980,
+        "y": 40,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "45feb960a2672471",
+        "id": "bd3b1222f47bcdf3",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Mode Clim Bureau 1",
-        "showStatusActivities": false,
-        "showErrors": false,
-        "showWarnings": true,
-        "unitid": "1",
-        "dataType": "HoldingRegister",
-        "adr": "15",
-        "quantity": "1",
-        "server": "247636eb43d0af05",
-        "emptyMsgOnFail": false,
-        "keepMsgProperties": false,
-        "delayOnStart": false,
-        "startDelayTime": "",
-        "x": 940,
-        "y": 1240,
-        "wires": [
-            [],
-            []
-        ]
-    },
-    {
-        "id": "d454c2858f916723",
-        "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Consigne Clim Bureau 1",
+        "z": "a4054732959ec832",
+        "name": "Consigne Clim Bureau F09bis",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -3026,42 +2672,18 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 950,
-        "y": 1280,
+        "x": 1990,
+        "y": 120,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "e67ba31cd453f12e",
+        "id": "cb8f882cca550726",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Ventil Clim Bureau 1",
-        "showStatusActivities": false,
-        "showErrors": false,
-        "showWarnings": true,
-        "unitid": "1",
-        "dataType": "HoldingRegister",
-        "adr": "17",
-        "quantity": "1",
-        "server": "247636eb43d0af05",
-        "emptyMsgOnFail": false,
-        "keepMsgProperties": false,
-        "delayOnStart": false,
-        "startDelayTime": "",
-        "x": 940,
-        "y": 1320,
-        "wires": [
-            [],
-            []
-        ]
-    },
-    {
-        "id": "f7534c82dcf7e14a",
-        "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Consigne mini Clim Bureau 1",
+        "z": "a4054732959ec832",
+        "name": "Consigne mini Clim Bureau F09bis",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -3074,18 +2696,18 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 960,
-        "y": 1360,
+        "x": 2000,
+        "y": 200,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "a898a22f381e0bc0",
+        "id": "111dff72dd927459",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
-        "name": "Temp reprise Clim Bureau 1",
+        "z": "a4054732959ec832",
+        "name": "Temp reprise Clim Bureau F09bis",
         "showStatusActivities": false,
         "showErrors": false,
         "showWarnings": true,
@@ -3098,18 +2720,18 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 960,
-        "y": 1400,
+        "x": 2000,
+        "y": 240,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "5817d52e3f34dcae",
+        "id": "743e41bc5779dcb1",
         "type": "modbus-read",
-        "z": "eb0c2330629d9ddf",
-        "name": "Lecture Modbus 15 registres bureau 1",
+        "z": "a4054732959ec832",
+        "name": "Lecture Modbus 15 registres Bureau F09bis",
         "topic": "",
         "showStatusActivities": false,
         "logIOActivities": false,
@@ -3128,19 +2750,19 @@
         "ioFile": "",
         "useIOForPayload": false,
         "emptyMsgOnFail": false,
-        "x": 190,
-        "y": 1260,
+        "x": 1230,
+        "y": 100,
         "wires": [
             [
-                "dafab51fce16c0c6"
+                "02b250eb9c96e1bd"
             ],
             []
         ]
     },
     {
-        "id": "a7a88ef6cce7e54a",
+        "id": "83c1d7baa6a13a59",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "name": "Ecriture adresses 127",
         "showStatusActivities": true,
         "showErrors": true,
@@ -3154,17 +2776,17 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "10",
-        "x": 900,
-        "y": 60,
+        "x": 860,
+        "y": 80,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "0e4edf681ffc4c1a",
+        "id": "3b190223dd97ed30",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "name": "Ecriture adresses 877",
         "showStatusActivities": true,
         "showErrors": true,
@@ -3178,17 +2800,17 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "10",
-        "x": 900,
-        "y": 120,
+        "x": 860,
+        "y": 360,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "ecbfdb17cdb62c38",
+        "id": "2b11b22b84074702",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "name": "Ecriture adresses 227",
         "showStatusActivities": true,
         "showErrors": true,
@@ -3202,17 +2824,17 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "10",
-        "x": 900,
-        "y": 180,
+        "x": 860,
+        "y": 640,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "4b00ae7da45c959f",
+        "id": "f452aec005fde813",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "name": "Ecriture adresses 302",
         "showStatusActivities": true,
         "showErrors": true,
@@ -3226,17 +2848,17 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "10",
-        "x": 900,
-        "y": 240,
+        "x": 860,
+        "y": 920,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "76e0e582cf04a7c3",
+        "id": "4b3569d1cf9e16fa",
         "type": "modbus-write",
-        "z": "eb0c2330629d9ddf",
+        "z": "a4054732959ec832",
         "name": "Ecriture adresses 327",
         "showStatusActivities": true,
         "showErrors": true,
@@ -3250,8 +2872,56 @@
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "10",
-        "x": 900,
-        "y": 300,
+        "x": 860,
+        "y": 1200,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "c4f1300ef4fbfd75",
+        "type": "modbus-write",
+        "z": "a4054732959ec832",
+        "name": "Mode Clim Bureau F09bis",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "1",
+        "dataType": "HoldingRegister",
+        "adr": "15",
+        "quantity": "1",
+        "server": "247636eb43d0af05",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 1980,
+        "y": 80,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e8cb3483c437d5a2",
+        "type": "modbus-write",
+        "z": "a4054732959ec832",
+        "name": "Ventil Clim Bureau F09bis",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "1",
+        "dataType": "HoldingRegister",
+        "adr": "17",
+        "quantity": "1",
+        "server": "247636eb43d0af05",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 1980,
+        "y": 160,
         "wires": [
             [],
             []
@@ -3301,7 +2971,6 @@
         "stopETSImportIfNoDatapoint": "fake",
         "loglevel": "error",
         "name": "KNX Gateway",
-        "localEchoInTunneling": true,
         "delaybetweentelegrams": 25,
         "ignoreTelegramsWithRepeatedFlag": false,
         "autoReconnect": "yes"
@@ -3337,12 +3006,12 @@
         "showLogs": true
     },
     {
-        "id": "96819a67f4dc1a1a",
+        "id": "52f9985e220e3a3c",
         "type": "global-config",
         "env": [],
         "modules": {
-            "node-red-contrib-modbus": "5.43.0",
-            "node-red-contrib-knx-ultimate": "3.3.40"
+            "node-red-contrib-modbus": "5.45.2",
+            "node-red-contrib-knx-ultimate": "4.0.29"
         }
     }
 ]
