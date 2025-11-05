@@ -38,5 +38,3 @@ if [ -n "$MODBUS_PID" ]; then
 else
     wait $NODE_RED_PID
 fi
-
-
