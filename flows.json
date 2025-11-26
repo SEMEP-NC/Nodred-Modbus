@@ -138,7 +138,7 @@
         "env": [],
         "modules": {
             "node-red-contrib-modbus": "5.45.2",
-            "node-red-contrib-knx-ultimate": "4.0.29"
+            "node-red-contrib-knx-ultimate": "4.1.1"
         }
     },
     {
@@ -158,6 +158,7 @@
         "delaybetweentelegrams": 25,
         "ignoreTelegramsWithRepeatedFlag": false,
         "keyringFileXML": "",
+        "knxSecureSelected": false,
         "secureCredentialsMode": "keyring",
         "tunnelIASelection": "Auto",
         "tunnelIA": "",
@@ -316,7 +317,7 @@
         "type": "knxUltimate",
         "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
-        "topic": "12/4/5",
+        "topic": "12/4/0",
         "setTopicType": "str",
         "outputtopic": "",
         "dpt": "1.001",
@@ -1085,7 +1086,7 @@
         "type": "knxUltimate",
         "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
-        "topic": "12/0/5",
+        "topic": "12/0/0",
         "setTopicType": "str",
         "outputtopic": "",
         "dpt": "1.001",
@@ -1172,7 +1173,7 @@
         "type": "knxUltimate",
         "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
-        "topic": "12/5/5",
+        "topic": "12/5/0",
         "setTopicType": "str",
         "outputtopic": "",
         "dpt": "9.004",
@@ -1244,7 +1245,7 @@
         "type": "function",
         "z": "a4054732959ec832",
         "name": "Découper registres en messages KNX",
-        "func": "// msg.payload est un tableau des registres lus\nlet registers = msg.payload;\n\n// Crée un tableau de 3 messages pour KNX avec payload et topic/dpt adaptés\nlet msg1 = [\n    {\n        payload: registers[0],\n        topic: \"12/2/5\",  // tempo eclairage\n        dpt: \"7.006\"\n    },\n]\nlet msg2 = [\n    {\n        payload: registers[1],\n        topic: \"12/6/5\", // Consigne luminosité\n        dpt: \"9.004\"\n    },\n]\nlet msg3 = [\n    {\n        payload: registers[2],\n        topic: \"12/1/5\", // tempo clim\n        dpt: \"7.006\"\n    }\n];\n\nreturn [msg1, msg2, msg3];",
+        "func": "// msg.payload est un tableau des registres lus\nlet registers = msg.payload;\n\n// Crée un tableau de 3 messages pour KNX avec payload et topic/dpt adaptés\nlet msg1 = [\n    {\n        payload: registers[0],\n        topic: \"12/2/0\",  // tempo eclairage\n        dpt: \"7.006\"\n    },\n]\nlet msg2 = [\n    {\n        payload: registers[1],\n        topic: \"12/6/0\", // Consigne luminosité\n        dpt: \"9.004\"\n    },\n]\nlet msg3 = [\n    {\n        payload: registers[2],\n        topic: \"12/1/0\", // tempo clim\n        dpt: \"7.006\"\n    }\n];\n\nreturn [msg1, msg2, msg3];",
         "outputs": 3,
         "timeout": "",
         "noerr": 0,
@@ -1270,7 +1271,7 @@
         "type": "knxUltimate",
         "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
-        "topic": "12/2/5",
+        "topic": "12/2/0",
         "setTopicType": "str",
         "outputtopic": "",
         "dpt": "7.006",
@@ -1307,7 +1308,7 @@
         "type": "knxUltimate",
         "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
-        "topic": "12/6/5",
+        "topic": "12/6/0",
         "setTopicType": "str",
         "outputtopic": "",
         "dpt": "9.004",
@@ -1344,7 +1345,7 @@
         "type": "knxUltimate",
         "z": "a4054732959ec832",
         "server": "dc1f53e2fc56ad70",
-        "topic": "12/1/5",
+        "topic": "12/1/0",
         "setTopicType": "str",
         "outputtopic": "",
         "dpt": "7.006",
@@ -22059,30 +22060,6 @@
         ]
     },
     {
-        "id": "ae50f16a0bf968ff",
-        "type": "modbus-write",
-        "z": "78e50f0cf8c34701",
-        "name": "Coupure clim D03",
-        "showStatusActivities": false,
-        "showErrors": false,
-        "showWarnings": true,
-        "unitid": "1",
-        "dataType": "HoldingRegister",
-        "adr": "136",
-        "quantity": "1",
-        "server": "247636eb43d0af05",
-        "emptyMsgOnFail": false,
-        "keepMsgProperties": false,
-        "delayOnStart": false,
-        "startDelayTime": "",
-        "x": 870,
-        "y": 40,
-        "wires": [
-            [],
-            []
-        ]
-    },
-    {
         "id": "f11cc91970071657",
         "type": "knxUltimate",
         "z": "78e50f0cf8c34701",
@@ -22137,7 +22114,6 @@
         "y": 60,
         "wires": [
             [
-                "ae50f16a0bf968ff",
                 "778fb049a6786a1b"
             ]
         ]
@@ -22620,7 +22596,7 @@
         "delayOnStart": false,
         "startDelayTime": "10",
         "x": 880,
-        "y": 100,
+        "y": 60,
         "wires": [
             [],
             []
@@ -22669,30 +22645,6 @@
         "startDelayTime": "",
         "x": 1960,
         "y": 180,
-        "wires": [
-            [],
-            []
-        ]
-    },
-    {
-        "id": "e518d1105c27961e",
-        "type": "modbus-write",
-        "z": "78e50f0cf8c34701",
-        "name": "Coupure clim D02a",
-        "showStatusActivities": false,
-        "showErrors": false,
-        "showWarnings": true,
-        "unitid": "1",
-        "dataType": "HoldingRegister",
-        "adr": "137",
-        "quantity": "1",
-        "server": "247636eb43d0af05",
-        "emptyMsgOnFail": false,
-        "keepMsgProperties": false,
-        "delayOnStart": false,
-        "startDelayTime": "",
-        "x": 870,
-        "y": 320,
         "wires": [
             [],
             []
@@ -22753,7 +22705,6 @@
         "y": 340,
         "wires": [
             [
-                "e518d1105c27961e",
                 "e6802560f516b3d8"
             ]
         ]
@@ -23236,7 +23187,7 @@
         "delayOnStart": false,
         "startDelayTime": "10",
         "x": 890,
-        "y": 380,
+        "y": 340,
         "wires": [
             [],
             []
@@ -23285,30 +23236,6 @@
         "startDelayTime": "",
         "x": 1960,
         "y": 460,
-        "wires": [
-            [],
-            []
-        ]
-    },
-    {
-        "id": "7c736e73f0734ba2",
-        "type": "modbus-write",
-        "z": "78e50f0cf8c34701",
-        "name": "Coupure clim D02b",
-        "showStatusActivities": false,
-        "showErrors": false,
-        "showWarnings": true,
-        "unitid": "1",
-        "dataType": "HoldingRegister",
-        "adr": "138",
-        "quantity": "1",
-        "server": "247636eb43d0af05",
-        "emptyMsgOnFail": false,
-        "keepMsgProperties": false,
-        "delayOnStart": false,
-        "startDelayTime": "",
-        "x": 870,
-        "y": 600,
         "wires": [
             [],
             []
@@ -23369,7 +23296,6 @@
         "y": 620,
         "wires": [
             [
-                "7c736e73f0734ba2",
                 "5f857e7ddfa8a816"
             ]
         ]
@@ -23852,7 +23778,7 @@
         "delayOnStart": false,
         "startDelayTime": "10",
         "x": 890,
-        "y": 660,
+        "y": 620,
         "wires": [
             [],
             []
